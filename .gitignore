@@ -1,0 +1,7 @@
+.vscode/
+.site/
+.jekyll-cache/
+.bundle/
+Gemfile.lock
+node_modules/
+package-lock.json

@@ -1,0 +1,9 @@
+title: FoxIO
+description: FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .git
+  - .gitignore
+  - node_modules
