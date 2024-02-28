@@ -5,4 +5,6 @@ title: FoxIO Blog
 
 # Welcome to FoxIO Blog
 
-This is a test blog post.
+<div class="text-purple">
+    This is a test blog post.
+</div>

@@ -544,7 +544,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.text-red-300 {
+.text-purple {
   --tw-text-opacity: 1;
-  color: rgb(252 165 165 / var(--tw-text-opacity));
+  color: rgb(110 58 245 / var(--tw-text-opacity));
 }

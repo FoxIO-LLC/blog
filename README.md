@@ -14,6 +14,9 @@ Install Ruby\
 Install Jekyll and its dependencies\
 ```bundle install```
 
+Install npm dependencies\
+```npm install```
+
 Install pre-commit\
 <https://pre-commit.com/>
 
