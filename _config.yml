@@ -4,6 +4,7 @@ description: FoxIO is a technology innovations company focused on creating simpl
 exclude:
   - Gemfile
   - Gemfile.lock
+  - node_modules
   - .git
   - .gitignore
-  - node_modules
+  - README.md
