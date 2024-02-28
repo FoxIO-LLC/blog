@@ -4,12 +4,15 @@ module.exports = {
       extend: {
         colors: {
             purple: {
-                DEFAULT: "#6E3AF5",
-                light: "#7D4EF6",
-                },
-                gray: {
-                DEFAULT: "#999999",
-                },
+              DEFAULT: "#6E3AF5",
+              light: "#7D4EF6",
+            },
+            gray: {
+              DEFAULT: "#999999",
+            },
+            black: {
+              DEFAULT: "#242424",
+            },
         },
         fontFamily: {
           body: ["-apple-system", "BlinkMacSystemFont", "Inter", "Segoe UI", "Roboto"],
@@ -17,5 +20,5 @@ module.exports = {
         },
       },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/typography")],
   };

@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: splash
 title: FoxIO Blog
 ---
 
-# Welcome to FoxIO Blog
+# {{ page.title }}
 
 <div class="text-purple">
     This is a test blog post.
