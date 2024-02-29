@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Cut SIEM &amp; AI cost by 80% with LogSlash &amp; cwolves" />
+<meta name="author" content="John Althouse" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data." />
+<meta property="og:description" content="In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data." />
+<link rel="canonical" href="http://localhost:8000/cut-siem-&-ai-cost-by-80%25-with-logslash-&-cwolves" />
+<meta property="og:url" content="http://localhost:8000/cut-siem-&-ai-cost-by-80%25-with-logslash-&-cwolves" />
+<meta property="og:site_name" content="FoxIO Blog" />
+<meta property="og:image" content="http://localhost:8000/assets/img/cut-siem-&-ai-cost-by-80%25-with-logslash-&-cwolves/cwolves_dashboard.webp" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-15T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:image" content="http://localhost:8000/assets/img/cut-siem-&-ai-cost-by-80%25-with-logslash-&-cwolves/cwolves_dashboard.webp" />
+<meta property="twitter:title" content="Cut SIEM &amp; AI cost by 80% with LogSlash &amp; cwolves" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@John Althouse" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Althouse"},"dateModified":"2023-06-15T00:00:00-05:00","datePublished":"2023-06-15T00:00:00-05:00","description":"In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data.","headline":"Cut SIEM &amp; AI cost by 80% with LogSlash &amp; cwolves","image":"http://localhost:8000/assets/img/cut-siem-&-ai-cost-by-80%25-with-logslash-&-cwolves/cwolves_dashboard.webp","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:8000/cut-siem-&-ai-cost-by-80%25-with-logslash-&-cwolves"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:8000/assets/img/logos/logo.png"},"name":"John Althouse"},"url":"http://localhost:8000/cut-siem-&-ai-cost-by-80%25-with-logslash-&-cwolves"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+        <title>Cut SIEM & AI cost by 80% with LogSlash & cwolves • FoxIO Blog</title>
+    </head>
+    <body class="flex flex-col mx-4 sm:mx-0 min-h-[100dvh] sm:min-h-screen">
+        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 mx-auto bg-white/50 backdrop-blur-sm">
+    <a href="/" class="m-auto">
+        <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
+    </a>
+</nav>
+
+        <section class="flex-grow mx-auto mt-10 mb-20 prose max-w-none sm:max-w-prose prose-purple">
+            <h1>
+                Cut SIEM & AI cost by 80% with LogSlash & cwolves
+            </h1>
+
+            <div class="flex not-prose">
+                <img src="/assets/img/headshots/john.jpg" alt="John Althouse" class="h-10 my-auto mr-2 rounded-full aspect-square" />
+                <div class="my-auto">
+                    <p class="text-sm font-semibold">John Althouse</p>
+                    <p class="text-xs text-black-light">June 15, 2023</p>
+                </div>
+            </div>
+
+            <p>In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data.</p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>LogSlash can reduce the cost of your logging infrastructure and the cost to train AI models on transactional data by 80%.</p>
+
+<p>cwolves is a startup that uses AI to automatically LogSlash and normalize any log type. It is extremely performant and cost effective. They created a Splunk plugin for LogSlash.</p>
+
+<p>LogSlash has also been tested on Vector, Logstash, Python, Kafka, and Cribl. Performance and ease of use are key.</p>
+
+<p>LogSlash code is available here: <a href="https://github.com/FoxIO-LLC/LogSlash">https://github.com/FoxIO-LLC/LogSlash</a></p>
+
+<p>LogSlash is patented and licensed under the FoxIO License which is permissive for most use cases, including internal business use. The main use case it’s not permissive for is monetization, that requires a separate OEM license which helps fund further R&amp;D.</p>
+
+<h2 id="background-on-logslash">Background on LogSlash</h2>
+
+<p>We released LogSlash, a method for reducing log volume without reducing analytical value, in <a href="/introducing-logslash-and-the-end-of-traditional-logging">this blog post from January</a>. Here’s a quick refresher on how LogSlash works:</p>
+
+<p>LogSlash intelligently reduces similar logs within a defined time window down to a single log line. For example, if an IP communicates to another IP 100 times a minute, instead of logging 100 log lines, LogSlash produces 1 log that says the event happened 100 times within that minute. Analytical value is retained while data volume is drastically reduced.</p>
+
+<p><img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/logslash.webp" alt="Simplified example of how LogSlash works" /></p>
+
+<p>Over the past few months we’ve worked with several large companies and have found that our initial estimate of 50% volume savings was wrong. These businesses are actually seeing around 80% log volume reduction when using LogSlash. Multiply those savings across trillions of logs and you can see how the cost benefit can be quite enormous, allowing organizations the headroom to send logs to their SIEM that they otherwise couldn’t afford.</p>
+
+<p>LogSlash isn’t just for SIEMs. Training AI models on transactional data is becoming increasingly common and extremely expensive. Running these logs through LogSlash prior to training the AI model on them can save an equal amount of training time and compute. You just want to make sure your model supports the “logslash” field so it knows how to duplicate the occurrences of data while training on LogSlashed logs.</p>
+
+<h2 id="development">Development</h2>
+
+<p>The LogSlash method is designed to be implemented into many existing technologies and languages. The difference between them comes down to performance and ease of configuration, as each log type requires its own configuration. We originally released LogSlash as a set of Vector.dev scripts. They worked but the scripts proved to be extremely complicated and time consuming to create.</p>
+
+<p><img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/vector_script.webp" alt="Vector script" /></p>
+
+<p><a href="https://www.linkedin.com/in/steven-hostetler/">Steven Hostetler</a> released LogSlash as a Logstash config. <a href="https://github.com/FoxIO-LLC/LogSlash/tree/main/Logstash">Slash-N-Stash</a> worked well but again, it took a lot of effort to build the config and get it working correctly.</p>
+
+<p><img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/slash_n_stash_repo.webp" alt="Slash-N-Stash repository" /></p>
+
+<p>We developed LogSlash on Python and Kafka but the performance was so cost prohibitive that it wasn’t even worth releasing as the cost to run LogSlash needs to be infinitesimal compared to the savings.</p>
+
+<p>We developed LogSlash on Cribl and this was a bit easier to develop compared to Vector and Logstash. However, it still requires you to build a different config for each log type and you need a Cribl license which is volume based. We’ve yet to test it at scale so performance impact is still unknown.</p>
+
+<h2 id="enter-cwolves">Enter cwolves</h2>
+
+<p>That brings us to cwolves, a startup entirely based around the LogSlash method and a licensee of FoxIO. They’re using a small AI model to recognize log field names, normalize them, and determine how to configure LogSlash to handle those fields. This means there’s no need to build normalization and LogSlash configs, those are now done automatically. The performance is incredible too.</p>
+
+<p>The AI-based normalization and config builder is brilliant. For example, if your log uses the field name “data_win_eventdata_ip_src”, it automatically recognizes that as “Source IP” and knows how to configure LogSlash for that field. It will present you with the configuration it built so you can still manually modify it how you see fit, but the effort of building these configs is now gone. Amazing! For some organizations, cwolves may be worth it just for the auto-normalization alone.</p>
+
+<p><img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/cwolves_dashboard.webp" alt="cwolves dashboard" /></p>
+
+<p>That’s LogSlash configuration writing and performance taken care of. Another hurdle is implementation. cwolves aims to solve this with easy cloud or on-prem implementation with the ability to get started on-cloud, in minutes, for free. This is a great way to test out LogSlash though I suspect that most organizations will want this on-prem or within their own VPC, so it’s great that they offer that option.</p>
+
+<p>The final hurdle to LogSlash is SIEM and AI model support. That is, they need to be aware that if the field “logslash=” exists in the log line, then it needs to duplicate the occurrence of each field by the logslash value while dividing fields that end in _total by the logslash value. This is straightforward to implement and cwolves is already developing a Splunk App that does just this.</p>
+
+<p><img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/splunk_dashboard.webp" alt="Splunk dashboard" /></p>
+
+<p>With that Splunk App, cwolves makes LogSlash ready to go for existing Splunk customers. It also makes Splunk suddenly affordable and an attractive option for those who are SIEM shopping.</p>
+
+<p>Try out LogSlash and cwolves at <a href="https://cwolves.com/">https://cwolves.com/</a></p>
+
+<p><a href="mailto:john@foxio.io">Contact us</a> at FoxIO if you’d like to know more about LogSlash or if you’re interested in an OEM license.</p>
+
+        </section>
+        <footer class="flex h-40 bg-gray">
+    <div class="flex flex-col m-auto">
+        <a href="https://foxio.io" class="m-auto">
+            <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">
+        </a>
+        <p class="w-full text-xs text-center text-black-light">© 2024 FoxIO</p>
+    </div>
+</footer>
+
+    </body>
+</html>

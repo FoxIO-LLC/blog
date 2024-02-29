@@ -2,6 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
         <link rel="stylesheet" href="/assets/css/styles.css">
 
         <!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -9,43 +12,47 @@
 <meta property="og:title" content="Introducing LogSlash and the End of Traditional Logging" />
 <meta name="author" content="John Althouse" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Introducing LogSlash and the End of Traditional Logging" />
-<meta property="og:description" content="Introducing LogSlash and the End of Traditional Logging" />
+<meta name="description" content="LogSlash is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by John Althouse, who led the creation of standard methods like JA3/S and JARM that are built into many vendor products, including AWS, Google, Azure, and used by the Fortune 500." />
+<meta property="og:description" content="LogSlash is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by John Althouse, who led the creation of standard methods like JA3/S and JARM that are built into many vendor products, including AWS, Google, Azure, and used by the Fortune 500." />
 <link rel="canonical" href="http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging" />
 <meta property="og:url" content="http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging" />
-<meta property="og:site_name" content="FoxIO" />
+<meta property="og:site_name" content="FoxIO Blog" />
 <meta property="og:image" content="http://localhost:8000/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-01-21T00:00:00-06:00" />
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="http://localhost:8000/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" />
 <meta property="twitter:title" content="Introducing LogSlash and the End of Traditional Logging" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@John Althouse" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Althouse"},"dateModified":"2023-01-21T00:00:00-06:00","datePublished":"2023-01-21T00:00:00-06:00","description":"Introducing LogSlash and the End of Traditional Logging","headline":"Introducing LogSlash and the End of Traditional Logging","image":"http://localhost:8000/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging"},"url":"http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Althouse"},"dateModified":"2023-01-21T00:00:00-06:00","datePublished":"2023-01-21T00:00:00-06:00","description":"LogSlash is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by John Althouse, who led the creation of standard methods like JA3/S and JARM that are built into many vendor products, including AWS, Google, Azure, and used by the Fortune 500.","headline":"Introducing LogSlash and the End of Traditional Logging","image":"http://localhost:8000/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:8000/assets/img/logos/logo.png"},"name":"John Althouse"},"url":"http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging"}</script>
 <!-- End Jekyll SEO tag -->
 
 
         <title>Introducing LogSlash and the End of Traditional Logging • FoxIO Blog</title>
     </head>
-    <body class="px-4 sm:px-0">
-        <nav class="sticky top-0 left-0 z-10 flex h-20 mx-auto bg-white/50 backdrop-blur-sm">
+    <body class="flex flex-col mx-4 sm:mx-0 min-h-[100dvh] sm:min-h-screen">
+        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 mx-auto bg-white/50 backdrop-blur-sm">
     <a href="/" class="m-auto">
         <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
     </a>
 </nav>
 
-        <section class="mx-auto my-20 prose prose-purple">
-            <h1 id="introducing-logslash-and-the-end-of-traditional-logging">Introducing LogSlash and the End of Traditional Logging</h1>
+        <section class="flex-grow mx-auto mt-10 mb-20 prose max-w-none sm:max-w-prose prose-purple">
+            <h1>
+                Introducing LogSlash and the End of Traditional Logging
+            </h1>
 
-<div class="flex not-prose">
-    <img src="/assets/img/headshots/john.jpg" alt="John Althouse" class="h-10 my-auto mr-2 rounded-full aspect-square" />
-    <div class="my-auto">
-        <p class="text-sm font-semibold">John Althouse</p>
-        <p class="text-xs text-black-light">January 21, 2023</p>
-    </div>
-</div>
+            <div class="flex not-prose">
+                <img src="/assets/img/headshots/john.jpg" alt="John Althouse" class="h-10 my-auto mr-2 rounded-full aspect-square" />
+                <div class="my-auto">
+                    <p class="text-sm font-semibold">John Althouse</p>
+                    <p class="text-xs text-black-light">January 21, 2023</p>
+                </div>
+            </div>
 
-<p><strong>LogSlash</strong> is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by <a href="https://www.linkedin.com/in/johnalthouse/">John Althouse</a>, who led the creation of standard methods like <a href="https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/">JA3/S</a> and <a href="https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/">JARM</a> that are built into many vendor products, including <a href="https://aws.amazon.com/about-aws/whats-new/2022/11/amazon-cloudfront-supports-ja3-fingerprint-headers/">AWS</a>, <a href="https://cloud.google.com/chronicle/docs/reference/udm-field-list#tlsclient">Google</a>, <a href="https://learn.microsoft.com/en-us/azure/firewall/idps-signature-categories">Azure</a>, and used by the Fortune 500.</p>
+            <p><strong>LogSlash</strong> is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by <a href="https://www.linkedin.com/in/johnalthouse/">John Althouse</a>, who led the creation of standard methods like <a href="https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/">JA3/S</a> and <a href="https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/">JARM</a> that are built into many vendor products, including <a href="https://aws.amazon.com/about-aws/whats-new/2022/11/amazon-cloudfront-supports-ja3-fingerprint-headers/">AWS</a>, <a href="https://cloud.google.com/chronicle/docs/reference/udm-field-list#tlsclient">Google</a>, <a href="https://learn.microsoft.com/en-us/azure/firewall/idps-signature-categories">Azure</a>, and used by the Fortune 500.</p>
 
 <p>This blog post introduces LogSlash, the method, benefits, and requirements. For more technical details, please visit our GitHub.</p>
 
@@ -137,7 +144,7 @@ Fields\_sum = bytes
 <p>We are really excited to also share our new, innovative software license with the industry! We worked with renowned Open Source License expert Heather Meeker, along with legal professors and licensing lawyers, to create the <a href="https://github.com/FoxIO-LLC/LogSlash/blob/main/LICENSE">FoxIO License</a>. It is similar to the intention behind the <a href="https://nmap.org/npsl/">Nmap Public Source License</a>, while being only 2 pages, human readable, and reusable. Those familiar with licensing know that it takes a lot of expertise and time to create small, readable licenses. A lot of care and effort went into this. The FoxIO License is free to use for your own projects. Read more about it in an upcoming blog post!</p>
 
         </section>
-        <footer class="bottom-0 left-0 flex h-40 bg-gray">
+        <footer class="flex h-40 bg-gray">
     <div class="flex flex-col m-auto">
         <a href="https://foxio.io" class="m-auto">
             <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">

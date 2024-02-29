@@ -1,0 +1,24 @@
+---
+layout: splash
+
+title: FoxIO Blog
+---
+
+<h1 class="mb-4 font-extrabold" style="font-size:2.25em; margin-bottom:0.8888889em; line-height:1.1111111">
+    {{ page.title }}
+</h1>
+
+<ul class="grid grid-cols-1 gap-12">
+    {% for post in site.posts %}
+        <li>
+            <a href="{{ post.url }}" class="flex flex-row space-x-8">
+                <div class="flex flex-col w-3/4 space-y-2">
+                    <h2 class="text-base font-semibold">{{ post.title }}</h2>
+                    <p class="text-sm text-black-light">{{ post.content | strip_html | truncatewords: 50 }}</p>
+                    <p class="text-xs font-semibold uppercase text-black-light">{{ post.date | date: "%b %d" }} • {{ post.author }}</p>
+                </div>
+                <img src="{{ post.image }}" alt="{{ post.title }}" class="object-contain w-1/4 rounded">
+            </a>
+        </li>
+    {% endfor %}
+</ul>

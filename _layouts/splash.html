@@ -2,13 +2,20 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
         <link rel="stylesheet" href="/assets/css/styles.css">
 
         {% seo title=false %}
 
-        <title>{{ page.title }} • FoxIO Blog</title>
+        <title>FoxIO Blog</title>
     </head>
-    <body>
-        {{ content }}
+    <body class="flex flex-col mx-4 sm:mx-0 min-h-[100dvh] sm:min-h-screen">
+        {% include nav.html %}
+        <section class="flex-grow mx-auto mt-10 mb-20 text-black max-w-none sm:max-w-prose not-prose">
+            {{ content }}
+        </section>
+        {% include footer.html %}
     </body>
 </html>

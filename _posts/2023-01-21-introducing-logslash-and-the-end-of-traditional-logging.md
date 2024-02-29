@@ -1,23 +1,13 @@
 ---
 permalink: introducing-logslash-and-the-end-of-traditional-logging
-headshot-loc: /assets/img/headshots/john.jpg
 layout: post
 
 title: Introducing LogSlash and the End of Traditional Logging
 author: John Althouse
 date: 2023-01-21
+headshot-loc: /assets/img/headshots/john.jpg
 image: /assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp
 ---
-
-# {{ page.title }}
-
-<div class="flex not-prose">
-    <img src="{{ page.headshot-loc }}" alt="{{ page.author }}" class="h-10 my-auto mr-2 rounded-full aspect-square" />
-    <div class="my-auto">
-        <p class="text-sm font-semibold">{{ page.author }}</p>
-        <p class="text-xs text-black-light">{{ page.date | date: "%B %-d, %Y" }}</p>
-    </div>
-</div>
 
 **LogSlash** is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by [John Althouse](https://www.linkedin.com/in/johnalthouse/), who led the creation of standard methods like [JA3/S](https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/) and [JARM](https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/) that are built into many vendor products, including [AWS](https://aws.amazon.com/about-aws/whats-new/2022/11/amazon-cloudfront-supports-ja3-fingerprint-headers/), [Google](https://cloud.google.com/chronicle/docs/reference/udm-field-list#tlsclient), [Azure](https://learn.microsoft.com/en-us/azure/firewall/idps-signature-categories), and used by the Fortune 500.
 

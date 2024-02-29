@@ -2,6 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
         <link rel="stylesheet" href="/assets/css/styles.css">
 
         <!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -12,23 +15,76 @@
 <meta property="og:description" content="FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems" />
 <link rel="canonical" href="http://localhost:8000/" />
 <meta property="og:url" content="http://localhost:8000/" />
-<meta property="og:site_name" content="FoxIO" />
+<meta property="og:site_name" content="FoxIO Blog" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="FoxIO Blog" />
+<meta name="twitter:site" content="@" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems","headline":"FoxIO Blog","name":"FoxIO","url":"http://localhost:8000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems","headline":"FoxIO Blog","name":"FoxIO Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:8000/assets/img/logos/logo.png"}},"sameAs":["https://www.linkedin.com/company/foxio-llc","https://github.com/FoxIO-LLC"],"url":"http://localhost:8000/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-        <title>FoxIO Blog • FoxIO Blog</title>
+        <title>FoxIO Blog</title>
     </head>
-    <body>
-        <h1 id="foxio-blog">FoxIO Blog</h1>
+    <body class="flex flex-col mx-4 sm:mx-0 min-h-[100dvh] sm:min-h-screen">
+        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 mx-auto bg-white/50 backdrop-blur-sm">
+    <a href="/" class="m-auto">
+        <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
+    </a>
+</nav>
 
-<div class="text-purple">
-    This is a test blog post.
-</div>
+        <section class="flex-grow mx-auto mt-10 mb-20 text-black max-w-none sm:max-w-prose not-prose">
+            <h1 class="mb-4 font-extrabold" style="font-size:2.25em; margin-bottom:0.8888889em; line-height:1.1111111">
+    FoxIO Blog
+</h1>
+
+<ul class="grid grid-cols-1 gap-12">
+
+        <li>
+            <a href="/ja4%2B-network-fingerprinting" class="flex flex-row space-x-8">
+                <div class="flex flex-col w-3/4 space-y-2">
+                    <h2 class="text-base font-semibold">JA4+ Network Fingerprinting</h2>
+                    <p class="text-sm text-black-light">TL;DR In this blog I go over the new JA4+ network fingerprinting methods and examples of what they can detect. JA4+ provides a suite of modular network fingerprints that are easy to use and easy to share, replacing the JA3 TLS fingerprinting standard from 2017. These methods are both human...</p>
+                    <p class="text-xs font-semibold uppercase text-black-light">Sep 26 • John Althouse</p>
+                </div>
+                <img src="/assets/img/ja4%2B-network-fingerprinting/do_you_struggle_with_detection.webp" alt="JA4+ Network Fingerprinting" class="object-contain w-1/4 rounded">
+            </a>
+        </li>
+
+        <li>
+            <a href="/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves" class="flex flex-row space-x-8">
+                <div class="flex flex-col w-3/4 space-y-2">
+                    <h2 class="text-base font-semibold">Cut SIEM & AI cost by 80% with LogSlash & cwolves</h2>
+                    <p class="text-sm text-black-light">In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data. TL;DR...</p>
+                    <p class="text-xs font-semibold uppercase text-black-light">Jun 15 • John Althouse</p>
+                </div>
+                <img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/cwolves_dashboard.webp" alt="Cut SIEM & AI cost by 80% with LogSlash & cwolves" class="object-contain w-1/4 rounded">
+            </a>
+        </li>
+
+        <li>
+            <a href="/introducing-logslash-and-the-end-of-traditional-logging" class="flex flex-row space-x-8">
+                <div class="flex flex-col w-3/4 space-y-2">
+                    <h2 class="text-base font-semibold">Introducing LogSlash and the End of Traditional Logging</h2>
+                    <p class="text-sm text-black-light">LogSlash is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by John Althouse, who led the creation of standard...</p>
+                    <p class="text-xs font-semibold uppercase text-black-light">Jan 21 • John Althouse</p>
+                </div>
+                <img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" alt="Introducing LogSlash and the End of Traditional Logging" class="object-contain w-1/4 rounded">
+            </a>
+        </li>
+
+</ul>
+
+        </section>
+        <footer class="flex h-40 bg-gray">
+    <div class="flex flex-col m-auto">
+        <a href="https://foxio.io" class="m-auto">
+            <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">
+        </a>
+        <p class="w-full text-xs text-center text-black-light">© 2024 FoxIO</p>
+    </div>
+</footer>
 
     </body>
 </html>
