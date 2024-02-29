@@ -4,11 +4,15 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="/assets/css/styles.css">
 
+        {% seo title=false %}
+
         <title>{{ page.title }} • FoxIO Blog</title>
     </head>
-    <body class="">
-        <section class="mx-auto prose">
+    <body class="px-4 sm:px-0">
+        {% include nav.html %}
+        <section class="mx-auto my-20 prose prose-purple">
             {{ content }}
         </section>
+        {% include footer.html %}
     </body>
 </html>

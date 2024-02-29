@@ -1,5 +1,22 @@
-title: FoxIO
+title: FoxIO Blog
 description: FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems
+url: blog.foxio.io
+
+logo: /assets/img/logos/logo.png
+
+social:
+  links:
+    - https://www.linkedin.com/company/foxio-llc
+    - https://github.com/FoxIO-LLC
+
+  # google_site_verification:
+
+twitter:
+  card: summary
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 exclude:
   - Gemfile

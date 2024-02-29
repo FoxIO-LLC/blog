@@ -28,7 +28,8 @@ Run pre-commit checks\
 
 ## Operation
 
-Write posts in markdown (.md) and place the post files in the "_posts" directory
+Write posts in markdown (.md) inside of the "_posts" directory with the following filename format:\
+```YYYY-MM-DD-title.md```
 
 Preview the site\
 ```serve.sh``` (Unix)\

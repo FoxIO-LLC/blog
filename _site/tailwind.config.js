@@ -8,16 +8,32 @@ module.exports = {
               light: "#7D4EF6",
             },
             gray: {
-              DEFAULT: "#999999",
+              DEFAULT: "#F7F7F7",
             },
             black: {
               DEFAULT: "#242424",
+              light: "#8C8C8C",
             },
         },
         fontFamily: {
           body: ["-apple-system", "BlinkMacSystemFont", "Inter", "Segoe UI", "Roboto"],
           sans: ["-apple-system", "BlinkMacSystemFont", "Inter", "Segoe UI", "Roboto"],
         },
+        typography: {
+          DEFAULT: {
+            css: {
+              color: "#242424",
+              a: {
+                color: "#6E3AF5",
+                "&:hover": {
+                  color: "#7D4EF6",
+                },
+                textDecoration: false,
+              },
+            },
+          },
+        }
+
       },
     },
     plugins: [require("@tailwindcss/typography")],

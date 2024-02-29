@@ -4,11 +4,46 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="/assets/css/styles.css">
 
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Introducing LogSlash and the End of Traditional Logging" />
+<meta name="author" content="John Althouse" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introducing LogSlash and the End of Traditional Logging" />
+<meta property="og:description" content="Introducing LogSlash and the End of Traditional Logging" />
+<link rel="canonical" href="http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging" />
+<meta property="og:url" content="http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging" />
+<meta property="og:site_name" content="FoxIO" />
+<meta property="og:image" content="http://localhost:8000/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-21T00:00:00-06:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:8000/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" />
+<meta property="twitter:title" content="Introducing LogSlash and the End of Traditional Logging" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Althouse"},"dateModified":"2023-01-21T00:00:00-06:00","datePublished":"2023-01-21T00:00:00-06:00","description":"Introducing LogSlash and the End of Traditional Logging","headline":"Introducing LogSlash and the End of Traditional Logging","image":"http://localhost:8000/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging"},"url":"http://localhost:8000/introducing-logslash-and-the-end-of-traditional-logging"}</script>
+<!-- End Jekyll SEO tag -->
+
+
         <title>Introducing LogSlash and the End of Traditional Logging • FoxIO Blog</title>
     </head>
-    <body class="">
-        <section class="mx-auto prose">
+    <body class="px-4 sm:px-0">
+        <nav class="sticky top-0 left-0 z-10 flex h-20 mx-auto bg-white/50 backdrop-blur-sm">
+    <a href="/" class="m-auto">
+        <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
+    </a>
+</nav>
+
+        <section class="mx-auto my-20 prose prose-purple">
             <h1 id="introducing-logslash-and-the-end-of-traditional-logging">Introducing LogSlash and the End of Traditional Logging</h1>
+
+<div class="flex not-prose">
+    <img src="/assets/img/headshots/john.jpg" alt="John Althouse" class="h-10 my-auto mr-2 rounded-full aspect-square" />
+    <div class="my-auto">
+        <p class="text-sm font-semibold">John Althouse</p>
+        <p class="text-xs text-black-light">January 21, 2023</p>
+    </div>
+</div>
 
 <p><strong>LogSlash</strong> is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by <a href="https://www.linkedin.com/in/johnalthouse/">John Althouse</a>, who led the creation of standard methods like <a href="https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/">JA3/S</a> and <a href="https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/">JARM</a> that are built into many vendor products, including <a href="https://aws.amazon.com/about-aws/whats-new/2022/11/amazon-cloudfront-supports-ja3-fingerprint-headers/">AWS</a>, <a href="https://cloud.google.com/chronicle/docs/reference/udm-field-list#tlsclient">Google</a>, <a href="https://learn.microsoft.com/en-us/azure/firewall/idps-signature-categories">Azure</a>, and used by the Fortune 500.</p>
 
@@ -16,7 +51,7 @@
 
 <p>LogSlash is free for internal business use and is available here: <a href="https://github.com/FoxIO-LLC/LogSlash">https://github.com/FoxIO-LLC/LogSlash</a></p>
 
-<p><img src="/assets/img/2023-01-21-introducing-logslash-and-the-end-of-traditional-logging/locks.jpg" alt="My mouse-drawn version of a generic security blog post image" /></p>
+<p><img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/locks.jpg" alt="My mouse-drawn version of a generic security blog post image" /></p>
 
 <h2 id="the-too-many-logs-problem">The Too-Many-Logs Problem</h2>
 
@@ -34,20 +69,20 @@
 
 <p>As an example, Bob connects to Gmail and starts clicking through his emails. While going through the emails, he clicks a malicious link.</p>
 
-<p><img src="/assets/img/2023-01-21-introducing-logslash-and-the-end-of-traditional-logging/logslash_firewall.png" alt="" /></p>
+<p><img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash_firewall.png" alt="LogSlash firewall" /></p>
 
 <p>These logs then flow through the LogSlash method before ingest into the logging platform following this logical configuration:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timewindow = 60s
+<pre><code class="language-spl">timewindow = 60s
 Group\_by = \[ host, type, domain, dstip, dstport, proto, action \]
 Fields\_ignored = srcport
 Fields\_concatinated =
 Fields\_sum = bytes
-</code></pre></div></div>
+</code></pre>
 
 <p>The output fields now include “timestamp-end”, “bytes-total” and “logslash,” which shows how many times the particular event occurred. We’re ignoring all but the first srcport as that field holds little analytical value. If we wanted to retain each srcport, we could configure LogSlash to concatenate them with a comma delimiter instead.</p>
 
-<p><img src="/assets/img/2023-01-21-introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" alt="" /></p>
+<p><img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" alt="LogSlash" /></p>
 
 <p>In this simplified example, we can see that Bob connected to Gmail 8 times over TLS/443 within a 53-second window with a total byte count of 3365kb and also attempted to connect to a malicious site once. LogSlash reduced the logs flowing into the log platform by 78% without any loss to the understanding of what happened. This can significantly reduce the cost to index, store, and process/search against log data, as well as reduce log platform licensing costs.</p>
 
@@ -59,7 +94,7 @@ Fields\_sum = bytes
 
 <h2 id="using-logslash-with-other-log-reduction-methods">Using LogSlash with other Log Reduction Methods</h2>
 
-<p><img src="/assets/img/2023-01-21-introducing-logslash-and-the-end-of-traditional-logging/architecture_element.webp" alt="Just one example of where LogSlash could slot in your existing pipeline." /></p>
+<p><img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/architecture_element.webp" alt="Just one example of where LogSlash could slot in your existing pipeline." /></p>
 
 <p>LogSlash is designed to work with other common log reduction methods such as standard compression, data deletion, and deduplication.</p>
 
@@ -71,7 +106,7 @@ Fields\_sum = bytes
 
 <h2 id="implementing-logslash">Implementing LogSlash</h2>
 
-<p><img src="/assets/img/2023-01-21-introducing-logslash-and-the-end-of-traditional-logging/architecture_integrated.webp" alt="LogSlash could also be built directly into existing products for a more seamless, integrated experience." /></p>
+<p><img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/architecture_integrated.webp" alt="LogSlash could also be built directly into existing products for a more seamless, integrated experience." /></p>
 
 <p>LogSlash was designed as a method that could be easily implemented into existing logging technologies and tools that you’re using today. Much like how JA3 was originally released as a Zeek Script before being implemented into vendor technologies, we are releasing LogSlash as <a href="https://vector.dev/">Vector</a> scripts. Vector is an open-source, lightweight, ultra-fast logging pipeline tool that contains the functions necessary to support LogSlash. We will soon be releasing LogSlash as Kafka Streams scripts and Cribl packs as well.</p>
 
@@ -83,7 +118,7 @@ Fields\_sum = bytes
 
 <h2 id="future-development">Future Development</h2>
 
-<p><img src="/assets/img/2023-01-21-introducing-logslash-and-the-end-of-traditional-logging/map.jpg" alt="This mouse-drawn pew-pew map doesn’t really have a purpose, honestly." /></p>
+<p><img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/map.jpg" alt="This mouse-drawn pew-pew map doesn’t really have a purpose, honestly." /></p>
 
 <p>While LogSlash is currently a set of simple scripts with a separate script for each log type, we’re working on a system that will adaptively recognize data types, so it can intelligently apply the appropriate LogSlash functions universally. This system will make it easy to onboard different log types with an initial configuration that can be tweaked. Logs will be LogSlashed on a rolling one-minute window by default, but this window will be configurable with potential savings dynamically displayed along with sample outputs.</p>
 
@@ -102,5 +137,14 @@ Fields\_sum = bytes
 <p>We are really excited to also share our new, innovative software license with the industry! We worked with renowned Open Source License expert Heather Meeker, along with legal professors and licensing lawyers, to create the <a href="https://github.com/FoxIO-LLC/LogSlash/blob/main/LICENSE">FoxIO License</a>. It is similar to the intention behind the <a href="https://nmap.org/npsl/">Nmap Public Source License</a>, while being only 2 pages, human readable, and reusable. Those familiar with licensing know that it takes a lot of expertise and time to create small, readable licenses. A lot of care and effort went into this. The FoxIO License is free to use for your own projects. Read more about it in an upcoming blog post!</p>
 
         </section>
+        <footer class="bottom-0 left-0 flex h-40 bg-gray">
+    <div class="flex flex-col m-auto">
+        <a href="https://foxio.io" class="m-auto">
+            <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">
+        </a>
+        <p class="w-full text-xs text-center text-black-light">© 2024 FoxIO</p>
+    </div>
+</footer>
+
     </body>
 </html>
