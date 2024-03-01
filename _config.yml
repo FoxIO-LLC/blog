@@ -17,6 +17,7 @@ twitter:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 exclude:
   - Gemfile

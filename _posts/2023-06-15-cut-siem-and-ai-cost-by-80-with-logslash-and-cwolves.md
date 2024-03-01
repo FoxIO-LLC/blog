@@ -1,5 +1,7 @@
 ---
 permalink: cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves
+redirect_from:
+  - /cut-siem-ai-cost-by-80-with-logslash-cwolves-64a71bf9063d
 layout: post
 
 title: Cut SIEM & AI cost by 80% with LogSlash & cwolves
