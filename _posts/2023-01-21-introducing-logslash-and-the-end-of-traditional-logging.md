@@ -1,7 +1,5 @@
 ---
 permalink: introducing-logslash-and-the-end-of-traditional-logging
-redirect_from:
-  - /introducing-logslash-and-the-end-of-traditional-logging-2c6708b6fc1c
 layout: post
 
 title: Introducing LogSlash and the End of Traditional Logging

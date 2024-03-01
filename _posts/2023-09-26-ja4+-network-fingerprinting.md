@@ -1,7 +1,5 @@
 ---
 permalink: ja4%2B-network-fingerprinting
-redirect_from:
-  - /ja4-network-fingerprinting-9376fe9ca637
 layout: post
 
 title: JA4+ Network Fingerprinting
