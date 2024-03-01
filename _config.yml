@@ -19,6 +19,8 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 
+relative_url: true
+
 exclude:
   - Gemfile
   - Gemfile.lock
