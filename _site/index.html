@@ -27,14 +27,14 @@
 
         <title>FoxIO Blog</title>
     </head>
-    <body class="flex flex-col mx-4 sm:mx-0 min-h-[100dvh] sm:min-h-screen">
-        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 mx-auto bg-white/50 backdrop-blur-sm">
+    <body class="flex flex-col min-h-[100dvh] sm:min-h-screen">
+        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 px-4 mx-auto bg-white/50 backdrop-blur-sm sm:px-0">
     <a href="/" class="m-auto">
         <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
     </a>
 </nav>
 
-        <section class="flex-grow mx-auto mt-10 mb-20 text-black max-w-none sm:max-w-prose not-prose">
+        <section class="flex-grow px-4 mx-auto mt-10 mb-20 text-black max-w-none sm:max-w-prose not-prose sm:px-0">
             <h1 class="mb-4 font-extrabold" style="font-size:2.25em; margin-bottom:0.8888889em; line-height:1.1111111">
     FoxIO Blog
 </h1>
@@ -42,42 +42,42 @@
 <ul class="grid grid-cols-1 gap-12">
 
         <li>
-            <a href="/ja4%2B-network-fingerprinting" class="flex flex-row space-x-8">
-                <div class="flex flex-col w-3/4 space-y-2">
+            <a href="/ja4%2B-network-fingerprinting" class="flex flex-col space-x-0 sm:space-x-8 sm:flex-row">
+                <div class="flex flex-col order-2 w-full mt-4 space-y-2 sm:w-3/4 sm:order-1 sm:mt-0">
                     <h2 class="text-base font-semibold">JA4+ Network Fingerprinting</h2>
                     <p class="text-sm text-black-light">TL;DR In this blog I go over the new JA4+ network fingerprinting methods and examples of what they can detect. JA4+ provides a suite of modular network fingerprints that are easy to use and easy to share, replacing the JA3 TLS fingerprinting standard from 2017. These methods are both human...</p>
                     <p class="text-xs font-semibold uppercase text-black-light">Sep 26 • John Althouse</p>
                 </div>
-                <img src="/assets/img/ja4%2B-network-fingerprinting/do_you_struggle_with_detection.webp" alt="JA4+ Network Fingerprinting" class="object-contain w-1/4 rounded">
+                <img src="/assets/img/ja4%2B-network-fingerprinting/do_you_struggle_with_detection.webp" alt="JA4+ Network Fingerprinting" class="order-1 object-contain w-full rounded sm:w-1/4 sm:order-2">
             </a>
         </li>
 
         <li>
-            <a href="/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves" class="flex flex-row space-x-8">
-                <div class="flex flex-col w-3/4 space-y-2">
+            <a href="/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves" class="flex flex-col space-x-0 sm:space-x-8 sm:flex-row">
+                <div class="flex flex-col order-2 w-full mt-4 space-y-2 sm:w-3/4 sm:order-1 sm:mt-0">
                     <h2 class="text-base font-semibold">Cut SIEM & AI cost by 80% with LogSlash & cwolves</h2>
                     <p class="text-sm text-black-light">In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data. TL;DR...</p>
                     <p class="text-xs font-semibold uppercase text-black-light">Jun 15 • John Althouse</p>
                 </div>
-                <img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/cwolves_dashboard.webp" alt="Cut SIEM & AI cost by 80% with LogSlash & cwolves" class="object-contain w-1/4 rounded">
+                <img src="/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/cwolves_dashboard.webp" alt="Cut SIEM & AI cost by 80% with LogSlash & cwolves" class="order-1 object-contain w-full rounded sm:w-1/4 sm:order-2">
             </a>
         </li>
 
         <li>
-            <a href="/introducing-logslash-and-the-end-of-traditional-logging" class="flex flex-row space-x-8">
-                <div class="flex flex-col w-3/4 space-y-2">
+            <a href="/introducing-logslash-and-the-end-of-traditional-logging" class="flex flex-col space-x-0 sm:space-x-8 sm:flex-row">
+                <div class="flex flex-col order-2 w-full mt-4 space-y-2 sm:w-3/4 sm:order-1 sm:mt-0">
                     <h2 class="text-base font-semibold">Introducing LogSlash and the End of Traditional Logging</h2>
                     <p class="text-sm text-black-light">LogSlash is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by John Althouse, who led the creation of standard...</p>
                     <p class="text-xs font-semibold uppercase text-black-light">Jan 21 • John Althouse</p>
                 </div>
-                <img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" alt="Introducing LogSlash and the End of Traditional Logging" class="object-contain w-1/4 rounded">
+                <img src="/assets/img/introducing-logslash-and-the-end-of-traditional-logging/logslash.webp" alt="Introducing LogSlash and the End of Traditional Logging" class="order-1 object-contain w-full rounded sm:w-1/4 sm:order-2">
             </a>
         </li>
 
 </ul>
 
         </section>
-        <footer class="flex h-40 bg-gray">
+        <footer class="flex h-40 px-4 bg-gray sm:px-0">
     <div class="flex flex-col m-auto">
         <a href="https://foxio.io" class="m-auto">
             <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">
