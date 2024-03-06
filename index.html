@@ -17,7 +17,7 @@ title: FoxIO Blog
                     <p class="text-sm text-black-light">{{ post.content | strip_html | truncatewords: 50 }}</p>
                     <p class="text-xs font-semibold uppercase text-black-light">{{ post.date | date: "%b %d" }} • {{ post.author }}</p>
                 </div>
-                <img src="{{ post.image }}" alt="{{ post.title }}" class="order-1 object-contain w-full rounded sm:w-1/4 sm:order-2">
+                <img src="{{ post.image }}" alt="{{ post.title }}" class="order-1 object-contain w-full rounded-lg sm:w-1/4 sm:order-2">
             </a>
         </li>
     {% endfor %}
