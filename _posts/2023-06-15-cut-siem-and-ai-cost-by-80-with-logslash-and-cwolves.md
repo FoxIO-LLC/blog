@@ -1,12 +1,12 @@
 ---
-permalink: cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves
+permalink: cut-siem-%26-ai-cost-by-80-with-logslash-%26-cwolves
 layout: post
 
 title: Cut SIEM & AI cost by 80% with LogSlash & cwolves
 author: John Althouse
 date: 2023-06-15
 headshot-loc: /assets/img/headshots/john.jpg
-image: /assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/cwolves_dashboard.webp
+image: /assets/img/cut-siem-&-ai-cost-by-80-with-logslash-&-cwolves/cwolves_dashboard.webp
 ---
 
 In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data.
@@ -29,7 +29,7 @@ We released LogSlash, a method for reducing log volume without reducing analytic
 
 LogSlash intelligently reduces similar logs within a defined time window down to a single log line. For example, if an IP communicates to another IP 100 times a minute, instead of logging 100 log lines, LogSlash produces 1 log that says the event happened 100 times within that minute. Analytical value is retained while data volume is drastically reduced.
 
-![Simplified example of how LogSlash works](/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/logslash.webp)
+![Simplified example of how LogSlash works](/assets/img/cut-siem-&-ai-cost-by-80-with-logslash-&-cwolves/logslash.webp)
 
 Over the past few months we’ve worked with several large companies and have found that our initial estimate of 50% volume savings was wrong. These businesses are actually seeing around 80% log volume reduction when using LogSlash. Multiply those savings across trillions of logs and you can see how the cost benefit can be quite enormous, allowing organizations the headroom to send logs to their SIEM that they otherwise couldn’t afford.
 
@@ -39,11 +39,11 @@ LogSlash isn’t just for SIEMs. Training AI models on transactional data is bec
 
 The LogSlash method is designed to be implemented into many existing technologies and languages. The difference between them comes down to performance and ease of configuration, as each log type requires its own configuration. We originally released LogSlash as a set of Vector.dev scripts. They worked but the scripts proved to be extremely complicated and time consuming to create.
 
-![Vector script](/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/vector_script.webp)
+![Vector script](/assets/img/cut-siem-&-ai-cost-by-80-with-logslash-&-cwolves/vector_script.webp)
 
 [Steven Hostetler](https://www.linkedin.com/in/steven-hostetler/) released LogSlash as a Logstash config. [Slash-N-Stash](https://github.com/FoxIO-LLC/LogSlash/tree/main/Logstash) worked well but again, it took a lot of effort to build the config and get it working correctly.
 
-![Slash-N-Stash repository](/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/slash_n_stash_repo.webp)
+![Slash-N-Stash repository](/assets/img/cut-siem-&-ai-cost-by-80-with-logslash-&-cwolves/slash_n_stash_repo.webp)
 
 We developed LogSlash on Python and Kafka but the performance was so cost prohibitive that it wasn’t even worth releasing as the cost to run LogSlash needs to be infinitesimal compared to the savings.
 
@@ -55,13 +55,13 @@ That brings us to cwolves, a startup entirely based around the LogSlash method a
 
 The AI-based normalization and config builder is brilliant. For example, if your log uses the field name “data\_win\_eventdata\_ip\_src”, it automatically recognizes that as “Source IP” and knows how to configure LogSlash for that field. It will present you with the configuration it built so you can still manually modify it how you see fit, but the effort of building these configs is now gone. Amazing! For some organizations, cwolves may be worth it just for the auto-normalization alone.
 
-![cwolves dashboard](/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/cwolves_dashboard.webp)
+![cwolves dashboard](/assets/img/cut-siem-&-ai-cost-by-80-with-logslash-&-cwolves/cwolves_dashboard.webp)
 
 That’s LogSlash configuration writing and performance taken care of. Another hurdle is implementation. cwolves aims to solve this with easy cloud or on-prem implementation with the ability to get started on-cloud, in minutes, for free. This is a great way to test out LogSlash though I suspect that most organizations will want this on-prem or within their own VPC, so it’s great that they offer that option.
 
 The final hurdle to LogSlash is SIEM and AI model support. That is, they need to be aware that if the field “logslash=” exists in the log line, then it needs to duplicate the occurrence of each field by the logslash value while dividing fields that end in \_total by the logslash value. This is straightforward to implement and cwolves is already developing a Splunk App that does just this.
 
-![Splunk dashboard](/assets/img/cut-siem-%26-ai-cost-by-80%25-with-logslash-%26-cwolves/splunk_dashboard.webp)
+![Splunk dashboard](/assets/img/cut-siem-&-ai-cost-by-80-with-logslash-&-cwolves/splunk_dashboard.webp)
 
 With that Splunk App, cwolves makes LogSlash ready to go for existing Splunk customers. It also makes Splunk suddenly affordable and an attractive option for those who are SIEM shopping.
 

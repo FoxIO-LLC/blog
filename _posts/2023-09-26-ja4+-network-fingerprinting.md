@@ -6,7 +6,7 @@ title: JA4+ Network Fingerprinting
 author: John Althouse
 date: 2023-09-26
 headshot-loc: /assets/img/headshots/john.jpg
-image: /assets/img/ja4%2B-network-fingerprinting/do_you_struggle_with_detection.webp
+image: /assets/img/ja4+-network-fingerprinting/do_you_struggle_with_detection.webp
 ---
 
 ## TL;DR
@@ -24,9 +24,9 @@ JA4X — X509 TLS Certificate
 JA4SSH — SSH Traffic
 More fingerprints are in development and will be added to the JA4+ family as they are released.
 
-![Application and fingerprints table](/assets/img/ja4%2B-network-fingerprinting/application_fingerprints_table.webp)
+![Application and fingerprints table](/assets/img/ja4+-network-fingerprinting/application_fingerprints_table.webp)
 
-![JA4X Sliver C2 list](/assets/img/ja4%2B-network-fingerprinting/ja4x_sliver_c2_list.webp)
+![JA4X Sliver C2 list](/assets/img/ja4+-network-fingerprinting/ja4x_sliver_c2_list.webp)
 
 JA4+ is available here: [https://github.com/FoxIO-LLC/ja4](https://github.com/FoxIO-LLC/ja4)
 
@@ -38,7 +38,7 @@ All JA4+ fingerprints have an _a\_b\_c_ format, delimiting the different section
 
 In this blog we are releasing JA4/S/H/L/X/SSH, or JA4+ for short. More fingerprints are in development and will be added to the JA4+ family as they are released.
 
-![There is hope!](/assets/img/ja4%2B-network-fingerprinting/do_you_struggle_with_detection.webp)
+![There is hope!](/assets/img/ja4+-network-fingerprinting/do_you_struggle_with_detection.webp)
 
 ## JA4: TLS Client Fingerprint
 
@@ -46,7 +46,7 @@ TLS is used to encrypt the vast majority of traffic on the internet, from web br
 
 JA4 looks at this TLS Client Hello packet and builds out an easily understandable and shareable fingerprint. The format is as follows:
 
-![JA4](/assets/img/ja4%2B-network-fingerprinting/ja4.webp)
+![JA4](/assets/img/ja4+-network-fingerprinting/ja4.webp)
 
 JA4 fingerprints the client, no matter if the traffic is over TCP or [QUIC](https://en.wikipedia.org/wiki/QUIC). QUIC is the protocol used by the new HTTP/3 standard that encapsulates TLS 1.3 into UDP packets. As QUIC was developed by Google, if an organization heavily utilizes Google products, QUIC could make up half of their network traffic, so this is important to capture.
 
@@ -54,7 +54,7 @@ JA4 also clearly shows the ALPN (Application-Layer Protocol Negotiation). This r
 
 More technical details for implementation and what the raw (unhashed) fingerprint looks like can be found on the [github page](https://github.com/FoxIO-LLC/ja4).
 
-![Examples](/assets/img/ja4%2B-network-fingerprinting/examples.webp)
+![Examples](/assets/img/ja4+-network-fingerprinting/examples.webp)
 
 Even though the traffic is encrypted over TLS 1.3, we are still able to gain a huge amount of valuable information about the client application. Remember that most custom applications will have the fingerprint of their underlying TLS libraries. So a program written in Go will likely have a JA4 that matches other Go programs. The same is true for Python, Java, etc., while custom programs like VPN clients, Steam, Slack, and Windows functions will be unique.
 
@@ -68,9 +68,9 @@ After a client sends its TLS Client Hello packet, the server will respond with i
 
 As such, the Server Hello is unique to both the server application and the Client Hello that was sent to it. A different Client Hello may cause a different Server Hello, and therefore a different JA4S, from the same server. However, the same Client Hello will always produce the same Server Hello from that server application. For example if the client sends JA4=a\_b\_c and the server responds with JA4S=d\_b\_e, that server will always respond to a\_b\_c with d\_b\_e. But if another application sends a different client hello to that same server, say JA4=x\_y\_z, the server will respond with a different server hello, JA4S=t\_y\_v. So it’s a different response to different applications but always the same response to the same application. I go into more detail on this in my [JA3S blog post](https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967/).
 
-![JA4S](/assets/img/ja4%2B-network-fingerprinting/ja4s.webp)
+![JA4S](/assets/img/ja4+-network-fingerprinting/ja4s.webp)
 
-![Example JA4 and JA4S combinations](/assets/img/ja4%2B-network-fingerprinting/example_ja4_and_ja4s_combinations.webp)
+![Example JA4 and JA4S combinations](/assets/img/ja4+-network-fingerprinting/example_ja4_and_ja4s_combinations.webp)
 
 JA4S, when combined with JA4, significantly increases detection fidelity. Going from merely identifying underlying libraries of a client to **identifying the client or malware family**. Beyond application identification, one could look at just JA4S\_b to understand what ciphers are being used on any given network to ensure it is meeting compliance requirements. All of this is possible without breaking encryption.
 
@@ -86,7 +86,7 @@ JA4H\_d is a fingerprint of the user and will be different per user. This allows
 
 More details on the technical implementation can be found on our [github](https://github.com/FoxIO-LLC/ja4).
 
-![JA4H examples](/assets/img/ja4%2B-network-fingerprinting/ja4h_examples.webp)
+![JA4H examples](/assets/img/ja4+-network-fingerprinting/ja4h_examples.webp)
 
 On the server side, one could use JA4H\_c as a hunting method. As the server is specifying which cookie fields the client should use, all clients should have the same JA4H\_c. Discrepancies here merit looking into. One could also track a user with JA4H\_d and their client application with JA4H\_ab or identify bots with just JA4H\_ab.
 
@@ -100,11 +100,11 @@ JA4L measures the distance between a client and a server by looking at the laten
 
 If JA4L is running server side, this will measure the distance of the client from the server and if this is running client side, this will measure the distance of the server from the client. If this is running on a network tap, it will measure the distance of each from the network tap location.
 
-![JA4L](/assets/img/ja4%2B-network-fingerprinting/ja4l.webp)
+![JA4L](/assets/img/ja4+-network-fingerprinting/ja4l.webp)
 
 JA4L is split up into 2 measurements, client and server. For TCP, these are determined by looking at the TCP 3-way handshake. UDP, we’re looking at the QUIC handshake.
 
-![TCP](/assets/img/ja4%2B-network-fingerprinting/tcp.webp)
+![TCP](/assets/img/ja4+-network-fingerprinting/tcp.webp)
 
 **JA4L-C** \= {(C-B)/2}\_Client TTL
 **JA4L-S** \= {(B-A)/2}\_Server TTL
@@ -113,7 +113,7 @@ In the above example:
 **JA4L-C** \= 11\_128
 **JA4L-S** \= 1759\_42
 
-![QUIC](/assets/img/ja4%2B-network-fingerprinting/quic.webp)
+![QUIC](/assets/img/ja4+-network-fingerprinting/quic.webp)
 
 **JA4L-C** \= {(D-C)/2}\_Client TTL
 **JA4L-S** \= {(B-A)/2}\_Server TTL
@@ -140,7 +140,7 @@ SpaceX factor = … needs to be tested
 
 We can use the TTL to calculate the hop count, which can help inform the propagation delay factor. (The table below is a good starting point but more testing needs to be done.)
 
-![Hop counts](/assets/img/ja4%2B-network-fingerprinting/hop_counts.webp)
+![Hop counts](/assets/img/ja4+-network-fingerprinting/hop_counts.webp)
 
 To calculate the number of hops a connection went through, subtract the TTL from its estimated initial TTL.
 
@@ -160,7 +160,7 @@ In this example, the actual distance was 194 miles.
 
 Utilizing multiple locations, one can passively triangulate the physical location of any client or server down to a city area. More on this in a later blog post…
 
-![JA4L triangulation](/assets/img/ja4%2B-network-fingerprinting/ja4l_triangulation.webp)
+![JA4L triangulation](/assets/img/ja4+-network-fingerprinting/ja4l_triangulation.webp)
 
 Additionally, JA4L\_b (TTL) passively facilitates the identification of source operating systems which is an excellent data point to have when performing forensic analysis. Also, because JA4L is looking at Layer 3 data, it works on encrypted and unencrypted traffic.
 
@@ -172,19 +172,19 @@ Combining JA4 with JA4H and JA4L on the server side makes it possible for the se
 
 JA4X fingerprints the way in which TLS certificates are generated — not the values within the certificate. This can identify applications and settings used to create the certificate which can be extremely useful in threat hunting as threat actors will create different certificates but tend to use the same methods to create said certificates, thereby having the same JA4X fingerprint.
 
-![JA4X](/assets/img/ja4%2B-network-fingerprinting/ja4x.webp)
+![JA4X](/assets/img/ja4+-network-fingerprinting/ja4x.webp)
 
-![JA4X examples](/assets/img/ja4%2B-network-fingerprinting/ja4x_examples.webp)
+![JA4X examples](/assets/img/ja4+-network-fingerprinting/ja4x_examples.webp)
 
 SoftEther VPN was heavily utilized by Chinese APT actors, [Flax Typhoon](https://www.microsoft.com/en-us/security/blog/2023/08/24/flax-typhoon-using-legitimate-software-to-quietly-access-taiwanese-organizations/), to compromise Taiwan infrastructure, and [Storm-0558](https://www.microsoft.com/en-us/security/blog/2023/07/14/analysis-of-storm-0558-techniques-for-unauthorized-email-access/) in the hacking of US Government Email accounts. According to Microsoft, it is very difficult to differentiate these connections from legitimate HTTPS traffic. However, because of the programmatic way that SoftEther generates its certificates, the JA4X is unique to SoftEther. If JA4X were to be implemented into a firewall, blocking traffic _to_ SoftEther VPNs would be trivial. And by utilizing a JA4X feed, blocking inbound traffic _from_ SoftEther VPNs would be trivial as well.
 
 Most certificate issuing organizations will use the same underlying program to generate and sign all of their certificates. Using Internet scan data enriched with JA4X from our friends at [Hunt.io](https://hunt.io/), we can take a look at Issuer Organization = “Microsoft Corporation” as an example.
 
-![JA4X Splunk](/assets/img/ja4%2B-network-fingerprinting/ja4x_splunk.webp)
+![JA4X Splunk](/assets/img/ja4+-network-fingerprinting/ja4x_splunk.webp)
 
 You can see that 99.8% of observed certificates have the same JA4X. The next one down is very similar, but the third one looks completely different. Let’s pivot on this anomaly.
 
-![JA4X Splunk 2](/assets/img/ja4%2B-network-fingerprinting/ja4x_splunk_2.webp)
+![JA4X Splunk 2](/assets/img/ja4+-network-fingerprinting/ja4x_splunk_2.webp)
 
 Oh look, it’s all Cobalt Strike! Well, that was easy.
 
@@ -194,11 +194,11 @@ One final example is [Sliver C2](https://github.com/BishopFox/sliver), which is 
 
 Sliver has over 400 lines of code dedicated to randomly generating TLS certificates. As such, each certificate is unique and pivoting on a certificate hash will yield no results.
 
-![Sliver random code](/assets/img/ja4%2B-network-fingerprinting/sliver_random_code.webp)
+![Sliver random code](/assets/img/ja4+-network-fingerprinting/sliver_random_code.webp)
 
 However, each certificate is also generated by the same application and therefore has the same JA4X. [Havoc C2](https://github.com/HavocFramework/Havoc) uses most of the Sliver code so it too has the same JA4X, but can be differentiated by looking at the Org Name and Postal Code length. In either case, both are malware and the JA4X is unique on the Internet. **Our friends at** [**driftnet.io**](https://driftnet.io/) **offer a JA4X feed and, with it, were able to quickly identify all default Sliver C2s listening on the Internet.**
 
-![Sliver C2 list](/assets/img/ja4%2B-network-fingerprinting/sliver_c2_list.webp)
+![Sliver C2 list](/assets/img/ja4+-network-fingerprinting/sliver_c2_list.webp)
 
 These examples show how JA4X can be used to detect and block traffic to SoftEther, Tor, Metasploit, Sliver, Havoc, RAT C2s, etc. Note that TLS certificates are sent in the clear in TLS 1.2, but are encrypted in TLS 1.3 so JA4X is best utilized on Proxy servers, Firewalls, MDR, NDR and Zero Trust applications that have that level of inspection. JA4X, when combined with JA4, JA4S, JA4H and JA4L provides an unparalleled level of visibility and detection capability. When used in internet scanning, JA4X is an excellent tool for pivot analysis and hunting down malicious servers, especially when combined with JARM data.
 
@@ -208,27 +208,27 @@ JA4SSH fingerprints SSH sessions by looking at SSH packets and providing a small
 
 Note that JA4SSH fingerprints the SSH session, not the SSH applications. For SSH application fingerprinting, I recommend you take a look at [HASSH](https://engineering.salesforce.com/open-sourcing-hassh-abed3ae5044c/), by my good friend [Ben Reardon](https://www.linkedin.com/in/benjaminreardon/).
 
-![JA4SSH](/assets/img/ja4%2B-network-fingerprinting/ja4ssh.webp)
+![JA4SSH](/assets/img/ja4+-network-fingerprinting/ja4ssh.webp)
 
-![JA4SSH examples](/assets/img/ja4%2B-network-fingerprinting/ja4ssh_examples.webp)
+![JA4SSH examples](/assets/img/ja4+-network-fingerprinting/ja4ssh_examples.webp)
 
 To understand how SSH traffic works and how to identify tunnels using traffic analysis, I recommend you read these excellent blogs on the subject by Trisul.org [here](https://www.trisul.org/blog/traffic-analysis-of-secure-shell-ssh/) and [here](https://www.trisul.org/blog/detecting-ssh-tunnels/).
 
 In short, SSH packets are padded out to a particular length depending on the cipher algorithm and HMAC used. With chacha20-poly1305, that ends up being 36 bytes. When the client types a character into the ssh terminal, that character is encrypted with the packet padded to 36 bytes and then sent to the server. The server will respond with the same character in a 36 byte packet and that’s when the character is displayed in the terminal window. The client will then send a TCP ACK packet to tell the server that they’re done with the previous transaction. Because of this, a client typing in a terminal will look like this:
 
-![Terminal view](/assets/img/ja4%2B-network-fingerprinting/terminal_view.webp)
+![Terminal view](/assets/img/ja4+-network-fingerprinting/terminal_view.webp)
 
 Notice that the TCP ACKs are coming from the side doing the SSH requests (client) and the server returns the output of the command at the bottom. The JA4SSH for this looks like: c36s36\_c51s80\_c69s0. So you see 36/36 and all the ACKs are from the client, the server has sent none, so from these we can easily see that it is an interactive forward SSH session.
 
 In a reverse SSH shell, it’s SSH over SSH so the packets are double padded + HMAC. Here’s what it looks like:
 
-![Terminal view 2](/assets/img/ja4%2B-network-fingerprinting/terminal_view_2.webp)
+![Terminal view 2](/assets/img/ja4+-network-fingerprinting/terminal_view_2.webp)
 
 The JA4SSH for this looks like: c76s76\_c71s59\_c0s70. We can clearly see a common packet length of 76/76, double padded, and all of the ACKs are coming from the server, meaning it is the server side that is doing the typing. It’s important to note that SSH provides encrypted messages, not an encrypted tunnel, so layer 4 packets, the TCP ACK packets, are sent in the clear. It is with these that we are able to determine which side is initiating the requests. By utilizing JA4SSH, it is now trivial to detect reverse SSH shells.
 
 In a SCP file transfer, the TCP Length is maxed out and looks like:
 
-![Terminal view 3](/assets/img/ja4%2B-network-fingerprinting/terminal_view_3.webp)
+![Terminal view 3](/assets/img/ja4+-network-fingerprinting/terminal_view_3.webp)
 
 The JA4SH for this looks like: c112s1460\_c0s179\_c21s0. Notice the maxed out window of s1460, that all SSH packets are coming from the server and all TCP ACK packets are coming from the client. This easily shows that the client requested a file and the server is sending it.
 
@@ -246,7 +246,7 @@ JA4+ can and is being implemented into open source tools, see the [License FAQ](
 
 This licensing allows us to provide JA4+ to the world in a way that is open and immediately usable, but also provides us with a way to fund continued support, research into new methods, and the development of the upcoming JA4+ Database. We want everyone to have the ability to utilize JA4+ and are happy to work with vendors and open source projects to help make that happen.
 
-![If you experience a detection lasting longer than 4 hours, contact your vendor right away.](/assets/img/ja4%2B-network-fingerprinting/ask_your_vendor_if_ja4+_is_right_for_you.webp)
+![If you experience a detection lasting longer than 4 hours, contact your vendor right away.](/assets/img/ja4+-network-fingerprinting/ask_your_vendor_if_ja4+_is_right_for_you.webp)
 
 ## Conclusion
 
