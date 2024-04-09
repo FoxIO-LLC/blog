@@ -15,14 +15,16 @@ In this blog I go over the new JA4+ network fingerprinting methods and examples 
 
 JA4+ provides a suite of modular network fingerprints that are easy to use and easy to share, replacing the JA3 TLS fingerprinting standard from 2017. These methods are both human and machine readable to facilitate more effective threat-hunting and analysis. The use-cases for these fingerprints include scanning for threat actors, malware detection, session hijacking prevention, compliance automation, location tracking, DDoS detection, grouping of threat actors, reverse shell detection, and many more.
 
-Initial Fingerprints:
-JA4 — TLS Client
-JA4S — TLS Server Response
-JA4H — HTTP Client
-JA4L — Light Distance/Location
-JA4X — X509 TLS Certificate
-JA4SSH — SSH Traffic
+Initial Fingerprints:\
+JA4 — TLS Client\
+JA4S — TLS Server Response\
+JA4H — HTTP Client\
+JA4L — Light Distance/Location\
+JA4X — X509 TLS Certificate\
+JA4SSH — SSH Traffic\
 More fingerprints are in development and will be added to the JA4+ family as they are released.
+
+**Examples:**
 
 ![Application and fingerprints table](/assets/img/2023-09-26/application_fingerprints_table.webp)
 
@@ -78,6 +80,8 @@ JA4S, when combined with JA4, significantly increases detection fidelity. Going 
 
 JA4H fingerprints the HTTP client based on each HTTP request. As most traffic is encrypted, JA4H is best utilized on servers, proxies, WAFs, TLS terminating load balancers, and environments where TLS is decrypted. However, JA4H is still valuable even in environments where TLS is not decrypted because a lot of devices and programs, including malware, still communicate over HTTP. The IcedID malware dropper, for example, doesn’t use TLS. These malware programs are very easy to fingerprint.
 
+![JA4H](/assets/img/2023-09-26/ja4h.webp)
+
 JA4H\_ab are a fingerprint of the application for the given HTTP method used. The lack of an Accept-Language is a clear indication that the application is not human interactive, ergo a bot.
 
 JA4H\_c is a fingerprint of the cookie and will be different for each website visited but will be the same for that website or application. For example, every Plex server or Okta server will produce the same JA4H\_c.
@@ -106,36 +110,36 @@ JA4L is split up into 2 measurements, client and server. For TCP, these are dete
 
 ![TCP](/assets/img/2023-09-26/tcp.webp)
 
-**JA4L-C** \= {(C-B)/2}\_Client TTL
+**JA4L-C** \= {(C-B)/2}\_Client TTL\
 **JA4L-S** \= {(B-A)/2}\_Server TTL
 
-In the above example:
-**JA4L-C** \= 11\_128
+In the above example:\
+**JA4L-C** \= 11\_128\
 **JA4L-S** \= 1759\_42
 
 ![QUIC](/assets/img/2023-09-26/quic.webp)
 
-**JA4L-C** \= {(D-C)/2}\_Client TTL
+**JA4L-C** \= {(D-C)/2}\_Client TTL\
 **JA4L-S** \= {(B-A)/2}\_Server TTL
 
-In the above example:
-**JA4L-C** \= 37\_128
-**JA4L-S** \= 2449\_42
+In the above example:\
+**JA4L-C** \= 37\_128\
+**JA4L-S** \= 2449\_42\
 
-**Distance Measurement:
-**With JA4L we can determine the distance between the client and server using this formula:
+**Distance Measurement**:\
+With JA4L we can determine the distance between the client and server using this formula:
 
-D = jc/p
+D = *jc/p*
 
-D = Distance
-j = JA4L\_a
-c = Speed of light per µs in fiber (0.128 miles/µs or 0.206km/µs)
+D = Distance\
+j = JA4L\_a\
+c = Speed of light per µs in fiber (0.128 miles/µs or 0.206km/µs)\
 p = Propagation delay factor
 
 Typical propagation delay depends on terrain and how many networks are involved.
 
-Poor terrain factor = 2 (around mountains, water)
-Good terrain factor = 1.5 (along highway, under sea cables)
+Poor terrain factor = 2 (around mountains, water)\
+Good terrain factor = 1.5 (along highway, under sea cables)\
 SpaceX factor = … needs to be tested
 
 We can use the TTL to calculate the hop count, which can help inform the propagation delay factor. (The table below is a good starting point but more testing needs to be done.)
@@ -144,8 +148,8 @@ We can use the TTL to calculate the hop count, which can help inform the propaga
 
 To calculate the number of hops a connection went through, subtract the TTL from its estimated initial TTL.
 
-Cisco, F5, most networking devices use a TTL of 255
-Windows uses a TTL of 128
+Cisco, F5, most networking devices use a TTL of 255\
+Windows uses a TTL of 128\
 Mac, Linux, phones, and IoT devices use a TTL of 64
 
 Most routes on the Internet have less than 64 hops. Therefore if the observed TTL, JA4L\_b, is <64, the estimated initial TTL is 64. Within 65–128, the estimated initial TTL is 128. And if the TTL is >128 then the estimated initial TTL is 255.
@@ -259,18 +263,18 @@ You can reach me directly on [LinkedIn](https://www.linkedin.com/in/johnalthouse
 **JA4+ was created by:**
 [John Althouse](https://www.linkedin.com/in/johnalthouse/)
 
-**With feedback from:**
-Josh Atkins
-Jeff Atkinson
-Joshua Alexander
-W.
-Joe Martin
-Ben Higgins
-Andrew Morris
-Chris Ueland
-Ben Schofield
-Matthias Vallentin
-Valeriy Vorotyntsev
-Timothy Noel
-Gary Lipsky
+**With feedback from:**\
+Josh Atkins\
+Jeff Atkinson\
+Joshua Alexander\
+W.\
+Joe Martin\
+Ben Higgins\
+Andrew Morris\
+Chris Ueland\
+Ben Schofield\
+Matthias Vallentin\
+Valeriy Vorotyntsev\
+Timothy Noel\
+Gary Lipsky\
 And engineers working at GreyNoise, Hunt, Google, ExtraHop, F5, Driftnet and others.
