@@ -18,7 +18,7 @@ Install npm dependencies\
 ```npm install```
 
 Install pre-commit\
-<https://pre-commit.com/>
+<https://pre-commit.com/#install>
 
 Install pre-commit git hooks\
 ```pre-commit install```
@@ -28,8 +28,13 @@ Run pre-commit checks\
 
 ## Operation
 
-Write posts in markdown (.md) inside of the "_posts" directory with the following filename format:\
+Write your post in markdown (.md) inside of the "_posts" directory and name the file using the convention:\
 ```YYYY-MM-DD-title.md```
+
+If your post contains an image(s), create a new directory inside of the "/assets/img" directory, name it using the convention:\
+```YYYY-MM-DD```,\
+upload your image(s) to that directory, and embed them in your post using markdown syntax:\
+```![<Caption>](/assets/img/YYYY-MM-DD/filename)```
 
 Preview the site\
 ```serve.sh``` (Unix)\
