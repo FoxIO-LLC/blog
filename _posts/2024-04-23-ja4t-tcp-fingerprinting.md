@@ -23,8 +23,8 @@ These tools add the ability to fingerprint client and server operating systems, 
 
 Included is an explanation for how to block 60% of all internet scan traffic using JA4T fingerprints of known scanners, based on GreyNoise data, and how to block them with F5 Big-IPs. See “Blocking Internet Scanners” below for details.
 
-JA4+: [https://github.com/FoxIO-LLC/ja4](https://github.com/FoxIO-LLC/ja4)
-JA4TScan: [https://github.com/FoxIO-LLC/ja4tscan](https://github.com/FoxIO-LLC/ja4tscan)
+JA4+: [https://github.com/FoxIO-LLC/ja4](https://github.com/FoxIO-LLC/ja4)\
+JA4TScan: [https://github.com/FoxIO-LLC/ja4tscan](https://github.com/FoxIO-LLC/ja4tscan)\
 Original blog on JA4+: [https://blog.foxio.io/ja4%2B-network-fingerprinting](https://blog.foxio.io/ja4%2B-network-fingerprinting)
 
 This project was inspired by [p0f](https://lcamtuf.coredump.cx/p0f3/) (Michał Zalewski), [Hershel+](https://github.com/zk7/hershelplus) (Zain Shamsi & Dmitri Loguinov), and [gait](https://github.com/sandialabs/gait/tree/main) (Charles Smutz & Brandon Thomas). You guys are amazing!
@@ -209,15 +209,14 @@ JA4+ licensing details are [here](https://github.com/FoxIO-LLC/ja4/tree/main#lic
 JA4T/S/Scan was created by: [John Althouse](https://www.linkedin.com/in/johnalthouse/)
 
 With valuable feedback from:
-Charles Smutz
-Andy Wick
-Joe Martin
-Andrew Morris
-Reid Huyssen
-Tony Maszeroski
-Greg Lesnewich
-Jo Johnson
-Timothy Noel
-Gary Lipsky
-
+Charles Smutz\
+Andy Wick\
+Joe Martin\
+Andrew Morris\
+Reid Huyssen\
+Tony Maszeroski\
+Greg Lesnewich\
+Jo Johnson\
+Timothy Noel\
+Gary Lipsky\
 And engineers working at AWS, F5, GreyNoise, Hunt, Censys, and others.
