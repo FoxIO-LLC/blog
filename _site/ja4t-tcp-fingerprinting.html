@@ -9,24 +9,24 @@
 
         <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="JA4T - TCP Fingerprinting" />
+<meta property="og:title" content="JA4T: TCP Fingerprinting" />
 <meta name="author" content="John Althouse" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="TL;DR" />
-<meta property="og:description" content="TL;DR" />
+<meta name="description" content="And How It Can Block 60% of Internet Scan Traffic" />
+<meta property="og:description" content="And How It Can Block 60% of Internet Scan Traffic" />
 <link rel="canonical" href="http://localhost:8000/ja4t-tcp-fingerprinting" />
 <meta property="og:url" content="http://localhost:8000/ja4t-tcp-fingerprinting" />
 <meta property="og:site_name" content="FoxIO Blog" />
-<meta property="og:image" content="http://localhost:8000/assets/img/2024-04-23/ja4tgif.gif" />
+<meta property="og:image" content="http://localhost:8000/assets/img/2024-04-23/tcp.gif" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-04-23T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:image" content="http://localhost:8000/assets/img/2024-04-23/ja4tgif.gif" />
-<meta property="twitter:title" content="JA4T - TCP Fingerprinting" />
+<meta property="twitter:image" content="http://localhost:8000/assets/img/2024-04-23/tcp.gif" />
+<meta property="twitter:title" content="JA4T: TCP Fingerprinting" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@John Althouse" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Althouse"},"dateModified":"2024-04-23T00:00:00-05:00","datePublished":"2024-04-23T00:00:00-05:00","description":"TL;DR","headline":"JA4T - TCP Fingerprinting","image":"http://localhost:8000/assets/img/2024-04-23/ja4tgif.gif","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:8000/ja4t-tcp-fingerprinting"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:8000/assets/img/logos/logo.png"},"name":"John Althouse"},"url":"http://localhost:8000/ja4t-tcp-fingerprinting"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Althouse"},"dateModified":"2024-04-23T00:00:00-05:00","datePublished":"2024-04-23T00:00:00-05:00","description":"And How It Can Block 60% of Internet Scan Traffic","headline":"JA4T: TCP Fingerprinting","image":"http://localhost:8000/assets/img/2024-04-23/tcp.gif","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:8000/ja4t-tcp-fingerprinting"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:8000/assets/img/logos/logo.png"},"name":"John Althouse"},"url":"http://localhost:8000/ja4t-tcp-fingerprinting"}</script>
 <!-- End Jekyll SEO tag -->
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TFHVF31TN"></script>
@@ -38,18 +38,18 @@
             gtag('config', 'G-8TFHVF31TN');
         </script>
 
-        <title>JA4T - TCP Fingerprinting • FoxIO Blog</title>
+        <title>JA4T: TCP Fingerprinting • FoxIO Blog</title>
     </head>
-    <body class="flex flex-col min-h-[100dvh] sm:min-h-screen">
-        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 px-4 mx-auto bg-white/50 backdrop-blur-sm sm:px-0">
+    <body class="flex flex-col min-h-[100dvh] lg:min-h-screen">
+        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 px-4 mx-auto bg-white/50 backdrop-blur-sm lg:px-0">
     <a href="/" class="m-auto">
         <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
     </a>
 </nav>
 
-        <section class="flex-grow px-4 mx-auto mt-10 mb-20 prose max-w-none sm:max-w-prose prose-purple sm:px-0">
+        <section class="flex-grow px-4 mx-auto mt-10 mb-20 prose max-w-none lg:w-2/3 prose-purple lg:px-0">
             <h1>
-                JA4T - TCP Fingerprinting
+                JA4T: TCP Fingerprinting
             </h1>
 
             <div class="flex not-prose">
@@ -60,36 +60,13 @@
                 </div>
             </div>
 
-            <h2 id="tldr">TL;DR</h2>
+            <p>And How It Can Block 60% of Internet Scan Traffic</p>
+
+<h2 id="tldr">TL;DR</h2>
 
 <p>JA4T/S/Scan are the latest additions to the JA4+ family of network fingerprinting tools.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>Short Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>JA4TCP</td>
-      <td>JA4T</td>
-      <td>Passive TCP Client Fingerprinting</td>
-    </tr>
-    <tr>
-      <td>JA4TCPServer</td>
-      <td>JA4TS</td>
-      <td>Passive TCP Server Response Fingerprinting</td>
-    </tr>
-    <tr>
-      <td>JA4TCPScan</td>
-      <td>JA4TScan</td>
-      <td>Active TCP Server Fingerprinting</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/img/2024-04-23/ja4tcptable.webp" alt="Comparison of JA4T, JA4TS, and JA4TScan" /></p>
 
 <p>These tools add the ability to fingerprint client and server operating systems, devices, particular applications, hosting characteristics, and even if a connection is going through a tunnel, VPN, or proxy. If built into a WAF, firewall, or load balancer, it becomes possible to block malicious traffic.</p>
 
@@ -103,75 +80,25 @@ Original blog on JA4+: <a href="https://blog.foxio.io/ja4%2B-network-fingerprint
 
 <h2 id="tcp-refresher">TCP Refresher</h2>
 
-<p><img src="/assets/img/2024-04-23/tcp.gif" alt="tcp" />
-Go, Packets, Go!</p>
+<p><img src="/assets/img/2024-04-23/tcp.gif" alt="Attempting to use a page from the children's book, “_Go Dog. Go!”_ to explain TCP." /></p>
 
 <p>TCP connections start with a TCP 3-way handshake. First, the client sends a TCP packet with the SYN flag to the server with its preferred TCP communication settings. If listening, the server will respond with a SYN-ACK packet and its preferred TCP communication settings. Then, the client will send an ACK, immediately followed by the application request, which could be HTTPS, SSH, etc. If the server is listening with that application protocol it will begin application communication. The connection is closed with a FIN ACK and the other side agrees with an ACK.</p>
 
 <p>If one side does not respond with an ACK, the other side will retransmit the packet(s) several times at varying intervals before giving up. The number of retransmissions and the time interval between them is dependent on the operating system’s netcode.</p>
 
-<p><img src="/assets/img/2024-04-23/tcp.png" alt="TCP SYN packet and the parts that we are looking at" /></p>
+<p><img src="/assets/img/2024-04-23/tcpsyn.webp" alt="A TCP SYN packet and the parts that we are looking at." /></p>
 
-<p>The communication settings in the initial SYN and SYN-ACK packets are determined by the netcode used in the operating system. A Window Size, the maximum amount of data to be transmitted before an ACK is needed, is limited to two bytes and is a required field. TCP options are not required but are used by every modern operating system.</p>
+<p>The communication settings in the initial SYN and SYN-ACK packets are determined by the netcode used in the operating system. A <strong>Window Size</strong>, the maximum amount of data to be transmitted before an ACK is needed, is limited to two bytes and is a required field. <strong>TCP Options</strong> are not required but are used by every modern operating system.</p>
 
-<p>Common TCP Options Used:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Hex</th>
-      <th>Kind</th>
-      <th>Byte Length</th>
-      <th>Meaning</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0x00</td>
-      <td>0</td>
-      <td>1</td>
-      <td>End of Options List</td>
-    </tr>
-    <tr>
-      <td>0x01</td>
-      <td>1</td>
-      <td>1</td>
-      <td>No-Operation (NOP)</td>
-    </tr>
-    <tr>
-      <td>0x02</td>
-      <td>2</td>
-      <td>4</td>
-      <td>Maximum Segment Size</td>
-    </tr>
-    <tr>
-      <td>0x03</td>
-      <td>3</td>
-      <td>3</td>
-      <td>Window Scale</td>
-    </tr>
-    <tr>
-      <td>0x04</td>
-      <td>4</td>
-      <td>2</td>
-      <td>SACK Permitted</td>
-    </tr>
-    <tr>
-      <td>0x08</td>
-      <td>8</td>
-      <td>10</td>
-      <td>Timestamps</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/img/2024-04-23/tcpoptions.webp" alt="Common TCP Options Used" /></p>
 
 <p>There are <a href="https://www.iana.org/assignments/tcp-parameters/tcp-parameters.xhtml">many other TCP options</a> going up to Kind 254, though they are mostly used in specialized environments (think SCADA and Mainframes). The total length of the TCP options list must be evenly divisible by 4. That is the reason why the NOP option exists, to pad out the options list length to a divisible byte count.</p>
 
-<p>The Window Scale acts as a multiplier for the Window Size, allowing the actual Window Size to be much larger than 65535. For example, if the Window Size is 64240 and the Window Scale is set to 8, then the actual Window Size is 64240*2\^8, or 16445440.</p>
+<p>The <strong>Window Scale</strong> acts as a multiplier for the Window Size, allowing the actual Window Size to be much larger than 65535. For example, if the Window Size is 64240 and the Window Scale is set to 8, then the actual Window Size is 64240*2⁸, or 16445440.</p>
 
-<p>The Maximum Segment Size (MSS) is the largest data payload size that the source will accept per packet and is dependent on the overhead in the network connection. For example, the most common Maximum Segment Size (MSS) initially set is 1460, based on an ethernet MTU of 1500. Observing an MSS of 1380 would indicate that there is overhead on the network path, such as a tunnel or VPN, requiring a reduced MSS to account for the overhead. Different network conditions produce different amounts of overhead:</p>
+<p>The <strong>Maximum Segment Size (MSS)</strong> is the largest data payload size that the source will accept per packet and is dependent on the overhead in the network connection. For example, the most common Maximum Segment Size (MSS) initially set is 1460, based on an ethernet MTU of 1500. Observing an MSS of 1380 would indicate that there is overhead on the network path, such as a tunnel or VPN, requiring a reduced MSS to account for the overhead. Different network conditions produce different amounts of overhead:</p>
 
-<p><img src="/assets/img/2024-04-23/mtu.png" alt="MTU" /></p>
+<p><img src="/assets/img/2024-04-23/mss.webp" alt="MSS" /></p>
 
 <p>Manually setting an MSS option to be higher than the actual available size will result in poor network performance, latency, and fragmentation.</p>
 
@@ -179,216 +106,53 @@ Go, Packets, Go!</p>
 
 <p>Previous TCP fingerprinting tools, like Nmap (2006) and p0f (2013), are designed to fuzzy match with known operating systems and, as such, produce fingerprints that are not meant to be logged or used as pivot points in analysis but rather to be used to map back to an OS or device list. Their raw fingerprints include variable values like hop count which change from connection to connection, making it difficult to share raw fingerprint strings across the industry as each observer would see something slightly different depending on where they were observing. These tools were fantastic for their use case and are still very valuable today, many years after they came out.</p>
 
-<p><img src="/assets/img/2024-04-23/p0f.png" alt="p0f" /></p>
+<p><img src="/assets/img/2024-04-23/p0f.webp" alt="p0f" /></p>
 
-<p><img src="/assets/img/2024-04-23/herschel.png" alt="hershel+" /></p>
+<p><img src="/assets/img/2024-04-23/hershel+.webp" alt="hershel+" /></p>
 
-<p><img src="/assets/img/2024-04-23/nmap.png" alt="Nmap" /></p>
+<p><img src="/assets/img/2024-04-23/nmap.webp" alt="Nmap" /></p>
 
 <h2 id="ja4t-tcp-fingerprinting">JA4T: TCP Fingerprinting</h2>
 
 <p>JA4T is specifically designed to be logged alongside every session, highlighting unusual network conditions, and to be used as a pivot point in analysis, troubleshooting, threat hunting, and traffic shaping. It is human- and machine-readable, shareable, and can augment threat intel data. While still able to identify the OS/Device, JA4T also helps to identify intermediary proxies, VPNs, load balancers, tunneling, etc. JA4T can be deployed on any network device including netflow sensors, firewalls, WAFs, load balancers, and proxies.</p>
 
-<p><img src="/assets/img/2024-04-23/ja4tgif.gif" alt="JA4T" /></p>
+<p><img src="/assets/img/2024-04-23/ja4tgif.gif" alt="JA4T Gif" /></p>
 
-<p>JA4T - TCP Client Fingerprint Examples:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>OS / Device</th>
-      <th>JA4T</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Windows 10</td>
-      <td>64240_2-1-3-1-1-4_1460_8</td>
-    </tr>
-    <tr>
-      <td>Ubuntu 22.04 on Win10 WSL</td>
-      <td>64240_2-4-8-1-3_1460_7</td>
-    </tr>
-    <tr>
-      <td>AWS Windows Server 2022</td>
-      <td>62727_2-1-3-1-1-4_1460_8</td>
-    </tr>
-    <tr>
-      <td>AWS Unix</td>
-      <td>62727_2-4-8-1-3_1460_7</td>
-    </tr>
-    <tr>
-      <td>AWS Unix over Fiber</td>
-      <td>62727_2-4-8-1-3_8961_7</td>
-    </tr>
-    <tr>
-      <td>Android 12</td>
-      <td>42600_2-4-8-1-3_1460_12</td>
-    </tr>
-    <tr>
-      <td>Android 13</td>
-      <td>65535_2-4-8-1-3_1460_9</td>
-    </tr>
-    <tr>
-      <td>OSX/iOS (all versions)</td>
-      <td>65535_2-1-3-1-1-8-4-0-0_1460_6</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/img/2024-04-23/examples.webp" alt="JA4T Examples" /></p>
 
 <p>Each operating system has different combinations of window size, options, and window scale. For example, Microsoft Windows does not utilize TCP Option 8 (timestamp), whereas all Unix-based operating systems do. iOS ends with a TCP Option 0 (End of list) whereas other operating systems do not. It’s interesting that iOS added another Option 0 to make their options list evenly divisible by 4 rather than removing an NOP (Option 1). This goes back to decisions the programmers made when building the netcode.</p>
 
-<p>Changes in the MSS (part c), can help identify network conditions for the device. For example, each mobile carrier sets a different MSS for the overhead in their cell network:</p>
+<p>Changes in the MSS (part <em>c</em>), can help identify network conditions for the device. For example, each mobile carrier sets a different MSS for the overhead in their cell network:</p>
 
-<p><img src="/assets/img/2024-04-23/mobile-n.png" alt="Mobile MSS" /></p>
+<p><img src="/assets/img/2024-04-23/mobilecarriers.webp" alt="Mobile Carrier MSSs" /></p>
 
 <p>Which means we can identify the carrier that devices are on:</p>
 
-<p><img src="/assets/img/2024-04-23/mobile.png" alt="Mobile Device" /></p>
+<p><img src="/assets/img/2024-04-23/mobilecarriersja4ts.webp" alt="Mobile Carrier JA4Ts" /></p>
 
 <p>When a device is connected through a VPN, the MSS, and occasionally Window Size, are <a href="https://www.cloudflare.com/learning/network-layer/what-is-mss/">changed</a> based on the overhead of the VPN and encryption ciphers used. When a device is connected through a Proxy, the TCP fingerprint of the proxy is seen on the server side, not the client. For example, the complete change in fingerprint when an iPhone connects through iCloud Relay:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>OS / Device</th>
-      <th>VPN / Proxy</th>
-      <th>JA4T</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Windows 10</td>
-      <td>None</td>
-      <td>64240_2-1-3-1-1-4_1460_8</td>
-    </tr>
-    <tr>
-      <td>Windows 10</td>
-      <td>OpenVPN</td>
-      <td>64240_2-1-3-1-1-4_1326_8</td>
-    </tr>
-    <tr>
-      <td>Windows 10</td>
-      <td>Wireguard VPN</td>
-      <td>64860_2-1-3-1-1-4_1380_8</td>
-    </tr>
-    <tr>
-      <td>iPhone</td>
-      <td>None</td>
-      <td>65535_2-1-3-1-1-8-4-0-0_1460_6</td>
-    </tr>
-    <tr>
-      <td>iPhone</td>
-      <td>OpenVPN</td>
-      <td>65535_2-1-3-1-1-8-4-0-0_1326_6</td>
-    </tr>
-    <tr>
-      <td><strong>iPhone</strong></td>
-      <td><strong>iCloud Relay</strong></td>
-      <td><strong>64240_2-4-8-1-3_1380_13</strong></td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/img/2024-04-23/vpnja4ts.webp" alt="VPN JA4Ts" /></p>
 
 <h2 id="ja4ts-tcp-server-response-fingerprint">JA4TS: TCP Server Response Fingerprint</h2>
 
 <p>While JA4T is based on the client’s TCP SYN packet, JA4TS is based on the SYN-ACK response.</p>
 
-<p>TCP servers may respond to different client TCP SYN options differently. This means that any given server may produce multiple JA4TS fingerprints depending on the clients connecting to it. For example, if a client does not include TCP Option 4 (SACK), the server is not likely to include Option 4 in its SYN-ACK response. Thus making JA4TS a TCP Server Response Fingerprint. To get an accurate fingerprint of the Server itself, see JA4TScan in the section below.</p>
+<p>TCP servers may respond to different client TCP SYN options differently. This means that any given server may produce multiple JA4TS fingerprints depending on the clients connecting to it. For example, if a client does not include TCP Option 4 (SACK), the server is not likely to include Option 4 in its SYN-ACK response. Thus making JA4TS a TCP Server <em>Response</em> Fingerprint. To get an accurate fingerprint of the Server itself, see JA4TScan in the section below.</p>
 
-<p>Example of how the JA4TS of the same server changes depending on the client:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Client</th>
-      <th>JA4T</th>
-      <th>Server</th>
-      <th>JA4TS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Windows 10</td>
-      <td>64240_2-1-3-1-1-4_1460_8</td>
-      <td>F5 BIG-IP</td>
-      <td>14600_2-1-3-4-0-0_1460_0</td>
-    </tr>
-    <tr>
-      <td>Linux</td>
-      <td>65535_2-4-8-1-3_1460_9</td>
-      <td>F5 BIG-IP</td>
-      <td>14600_2-1-3-4-8_1460_0</td>
-    </tr>
-    <tr>
-      <td>Linux Proxy</td>
-      <td>27920_2-4-8-1-3_1396_7</td>
-      <td>F5 BIG-IP</td>
-      <td>13960_2-1-3-4-8_1460_0</td>
-    </tr>
-    <tr>
-      <td>NMap</td>
-      <td>1024_2_1460_00</td>
-      <td>F5 BIG-IP</td>
-      <td>14600_2_1460_00</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/img/2024-04-23/clientdependentja4ts.webp" alt="Client dependency of JA4TS" /></p>
 
 <h2 id="ja4tscan-active-tcp-server-fingerprinting">JA4TScan: Active TCP Server Fingerprinting</h2>
 
-<p><img src="/assets/img/2024-04-23/ja4tscan.png" alt="ja4tscan" /></p>
+<p><img src="/assets/img/2024-04-23/ja4tscan.webp" alt="JA4TScan" /></p>
 
-<p>JA4TScan is designed to produce a reliable TCP fingerprint of any server. It does this by actively scanning servers with a single SYN packet that includes all common TCP options to produce the most robust TCP SYN-ACK response from the server. It does not respond to the SYN-ACK from the server, but instead listens for retransmissions, counts the delay between each retransmission, and adds those delays to the end of the fingerprint as section e. If an RST packet is observed, it is also added to the fingerprint and prefixed with an “R”.</p>
+<p>JA4TScan is designed to produce a reliable TCP fingerprint of any server. It does this by actively scanning servers with a single SYN packet that includes all common TCP options to produce the most robust TCP SYN-ACK response from the server. It does not respond to the SYN-ACK from the server, but instead listens for retransmissions, counts the delay between each retransmission, and adds those delays to the end of the fingerprint as section <em>e</em>. If an RST packet is observed, it is also added to the fingerprint and prefixed with an “R”.</p>
 
-<p><img src="/assets/img/2024-04-23/ja4tscan-wireshark.png" alt="ja4tscan-wireshark" /></p>
+<p><img src="/assets/img/2024-04-23/wiresharkja4tscan.webp" alt="JA4TScan as seen in Wireshark" /></p>
 
 <p>TCP retransmissions, the number of retransmissions, and the delay between them are unique per operating system, as they are based on the OS netcode and the decisions of the engineers who wrote it. For example, some IoT devices send several retransmissions less than a second apart to attempt to reconnect as quickly as possible, while other devices will wait one second, retransmit, then wait two seconds, retransmit, then wait four seconds, retransmit, etc.</p>
 
-<p>Example JA4TScan fingerprints:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>OS / Device</th>
-      <th>JA4TScan</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>AWS Linux 2</td>
-      <td>62727_2-4-8-1-3_8961_7_1-2-4-8-16</td>
-    </tr>
-    <tr>
-      <td>Windows 10</td>
-      <td>64240_2-1-3-1-1-4_1460_8_1-2-4-8-R6</td>
-    </tr>
-    <tr>
-      <td>Epson Printer</td>
-      <td>28960_2-4-8-1-3_1460_3_1-2-4-8-16</td>
-    </tr>
-    <tr>
-      <td>Ubiquiti Router</td>
-      <td>43440_2-4-8-1-3_1460_12_1-2-4-8-17</td>
-    </tr>
-    <tr>
-      <td>Ubiquiti Cameras</td>
-      <td>28960_2-4-8-1-3_1460_6_1-2-4-8-16</td>
-    </tr>
-    <tr>
-      <td>Rachio IoT Device</td>
-      <td>7168_2-3-0_1460_0_0-0-0-0-0-0-0-0-0-0</td>
-    </tr>
-    <tr>
-      <td>Akamai CDN</td>
-      <td>65160_2-4-8-1-3_1348_7_1-2-4-8-16</td>
-    </tr>
-    <tr>
-      <td>Cisco RV320/RV325</td>
-      <td>5792_2-4-8-1-3_1460_4_3-6-12-24</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/img/2024-04-23/exampleja4tscans.webp" alt="Example JA4TScan fingerprints" /></p>
 
 <p>By incorporating the delay between TCP retransmission responses, we can build a very robust TCP fingerprint with only a single SYN packet. JA4TScan will be added to <a href="https://censys.com/">Censys</a> and other tools later this year.</p>
 
@@ -400,67 +164,25 @@ Go, Packets, Go!</p>
 
 <p>A list of top JA4T fingerprints seen scanning the internet over the last several weeks according to GreyNoise:</p>
 
-<p>Top JA4T Fingerprints - GreyNoise.io April 2024:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>JA4T</th>
-      <th>OS / Application</th>
-      <th>% of Internet scan traffic</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1024_00_00_00</td>
-      <td>masscan</td>
-      <td>21%</td>
-    </tr>
-    <tr>
-      <td>65535_2_1460_00</td>
-      <td>Modified ZMap</td>
-      <td>19%</td>
-    </tr>
-    <tr>
-      <td>1025_2_1460_00</td>
-      <td>Modified Nmap</td>
-      <td>8%</td>
-    </tr>
-    <tr>
-      <td>65535_00_00_00</td>
-      <td>ZMap</td>
-      <td>6%</td>
-    </tr>
-    <tr>
-      <td>1024_2_1460_00</td>
-      <td>Nmap</td>
-      <td>6%</td>
-    </tr>
-    <tr>
-      <td>29200_2-4-8-1-3_1424_7</td>
-      <td>Unknown/Tencent</td>
-      <td>5%</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/img/2024-04-23/greynoise.webp" alt="Top JA4T fingerprints according to GreyNoise" /></p>
 
 <p>The first 5 JA4T fingerprints, <strong>which make up 60% of all internet scan traffic</strong>, appear to be unique to those scanning applications and can be blocked using JA4T on your respective WAF, firewall, or load balancer. This allows for the heuristic blocking of malicious traffic based on fingerprints rather than constantly-changing IP lists. <a href="https://www.f5.com/">F5</a> has an example iRule for blocking these JA4T fingerprints on F5 BIG-IPs <a href="https://github.com/f5devcentral/f5-ja4">here</a>.</p>
 
 <p>When blocking based on JA4T, the block happens at the SYN packet, preventing a SYN-ACK response. This means that the traffic is blocked before the scanner can even tell if the port is up. As always, careful consideration should be used before implementing a block rule as these could end up also blocking your Attack Surface Management (ASM) tool.</p>
 
-<p>Let’s dive into that last JA4T, <em>29200_2-4-8-1-3_1424_7</em>. An options list of 2-4-8-1-3 indicates a Unix-based operating system and an MSS of 1424 indicates that these connections have 36 bytes of additional network overhead. This is possibly an unencrypted tunnel or proxy, as 36 bytes is not enough for additional encryption as would be seen in a VPN. GreyNoise is observing hundreds of source IPs with this JA4T fingerprint, however, all are within Tencent IP ranges and listening on port 22, with some listening on port 31401, which is Pi Node Crypto Miner. Given the MSS discrepancy, it’s possible that these source IPs are not actually the true source of the traffic but instead that traffic is being bounced through them.</p>
+<p>Let’s dive into that last JA4T, <em>29200_2–4–8–1–3_1424_7</em>. An options list of <em>2–4–8–1–3</em> indicates a Unix-based operating system and an MSS of 1424 indicates that these connections have 36 bytes of additional network overhead. This is possibly an unencrypted tunnel or proxy, as 36 bytes is not enough for additional encryption as would be seen in a VPN. GreyNoise is observing hundreds of source IPs with this JA4T fingerprint, however, all are within Tencent IP ranges and listening on port 22, with some listening on port 31401, which is Pi Node Crypto Miner. Given the MSS discrepancy, it’s possible that these source IPs are not actually the true source of the traffic but instead that traffic is being bounced through them.</p>
 
 <p>Pivoting on the JA4T with GreyNoise data, we can see this actor’s scanning priorities are primarily focused on SSH and alternative SSH ports:</p>
 
-<p><img src="/assets/img/2024-04-23/gn-ports.png" alt="ports" /></p>
+<p><img src="/assets/img/2024-04-23/scanningpriorities.webp" alt="Scanning priorities" /></p>
 
-<p>Their second priority is web server identification. Comparing the top JA4H (HTTP Fingerprint) with this JA4T shows that they use a few different bots. Some are simple, while others try to look like a browser with their primary Accept-Language set to “zhcn”, which is Chinese-PRC. The case of <em>ge10nn04zhcn</em>, they’re using HTTP 1.0 as an attempt to connect to older devices:</p>
+<p>Their second priority is web server identification. Comparing the top JA4H (HTTP Fingerprint) with this JA4T shows that they use a few different bots. Some are simple, while others try to look like a browser with their primary Accept-Language set to “zhcn”, which is Chinese-PRC. In the case of <em>ge10nn04zhcn</em>, they’re using HTTP 1.0 as an attempt to connect to older devices:</p>
 
-<p><img src="/assets/img/2024-04-23/gn-ja4h.png" alt="ja4h" /></p>
+<p><img src="/assets/img/2024-04-23/ja4hja4t.webp" alt="JA4H and JA4T fingerprints" /></p>
 
 <p>Comparing the top JA4 (TLS Fingerprint) with this JA4T reveals that the actor uses a few variations of client hellos when scanning. Their primary scanner is a custom catch-all scanner that supports TLS 1.3, but, also, 69 ciphers — nice. Their other scanners support TLS 1.2 and 1.1, indicating that they’re looking to connect to both new and old systems with a variety of TLS client hellos. The one JA4 of <em>t11d6911h9</em> is particularly odd because it’s TLS 1.1 with an ALPN extension, but ALPN didn’t exist in the days of TLS 1.1:</p>
 
-<p><img src="/assets/img/2024-04-23/gn-ja4.png" alt="ja4" /></p>
+<p><img src="/assets/img/2024-04-23/ja4ja4t.webp" alt="JA4 and JA4T fingerprints" /></p>
 
 <p>Combining this actor’s unusual JA4T with these unusual JA4H or JA4 fingerprints would make for great blocking or detection rules as it is the combination of JA4+ fingerprints that can facilitate creating detection and blocking rules with no false positives.</p>
 
@@ -478,9 +200,9 @@ Go, Packets, Go!</p>
 
 <p>JA4+ licensing details are <a href="https://github.com/FoxIO-LLC/ja4/tree/main#licensing">here</a>.</p>
 
-<p>JA4T/S/Scan was created by: <a href="https://www.linkedin.com/in/johnalthouse/">John Althouse</a></p>
+<p>JA4T/S/Scan was created at <a href="https://foxio.io/">FoxIO</a> by <a href="https://www.linkedin.com/in/johnalthouse/">John Althouse</a>.</p>
 
-<p>With valuable feedback from:
+<p>With valuable feedback from:<br />
 Charles Smutz<br />
 Andy Wick<br />
 Joe Martin<br />
@@ -490,11 +212,12 @@ Tony Maszeroski<br />
 Greg Lesnewich<br />
 Jo Johnson<br />
 Timothy Noel<br />
-Gary Lipsky<br />
-And engineers working at AWS, F5, GreyNoise, Hunt, Censys, and others.</p>
+Gary Lipsky</p>
+
+<p>And engineers working at AWS, F5, GreyNoise, Hunt, Censys, and others.</p>
 
         </section>
-        <footer class="flex h-40 px-4 bg-gray sm:px-0">
+        <footer class="flex h-40 px-4 bg-gray lg:px-0">
     <div class="flex flex-col m-auto">
         <a href="https://foxio.io" class="m-auto">
             <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">
