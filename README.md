@@ -34,7 +34,7 @@ Write your post in markdown (.md) inside of the "_posts" directory and name the 
 If your post contains an image(s), create a new directory inside of the "/assets/img" directory, name it using the convention:\
 ```YYYY-MM-DD```,\
 upload your image(s) to that directory, and embed them in your post using markdown syntax:\
-```![<Caption>](/assets/img/YYYY-MM-DD/filename)```
+```![Caption](/assets/img/YYYY-MM-DD/filename)```
 
 Preview the site\
 ```serve.sh``` (Unix)\
