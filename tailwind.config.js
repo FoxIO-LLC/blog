@@ -16,8 +16,8 @@ module.exports = {
             },
         },
         fontFamily: {
-          body: ["-apple-system", "BlinkMacSystemFont", "Inter", "Segoe UI", "Roboto"],
-          sans: ["-apple-system", "BlinkMacSystemFont", "Inter", "Segoe UI", "Roboto"],
+          body: ["-apple-system", "BlinkMacSystemFont", "Inter", "Segoe UI", "Roboto", "sans-serif"],
+          sans: ["-apple-system", "BlinkMacSystemFont", "Inter", "Segoe UI", "Roboto", "sans-serif"],
         },
         typography: {
           DEFAULT: {
