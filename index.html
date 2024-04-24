@@ -15,7 +15,7 @@ title: FoxIO Blog
                 <div class="flex flex-col order-2 w-full mt-4 space-y-2 lg:w-3/4 lg:order-1 lg:mt-0">
                     <h2 class="text-base font-semibold">{{ post.title }}</h2>
                     <p class="text-sm text-black-light">{{ post.content | strip_html | truncatewords: 50 }}</p>
-                    <p class="text-xs font-semibold uppercase text-black-light">{{ post.date | date: "%b %d" }} • {{ post.author }}</p>
+                    <p class="text-xs font-semibold uppercase text-black-light">{{ post.date | date: "%b %d, %Y" }} • {{ post.author }}</p>
                 </div>
                 <img src="{{ post.image }}" alt="{{ post.title }}" class="order-1 object-contain w-full rounded-lg lg:w-1/4 lg:order-2">
             </a>
