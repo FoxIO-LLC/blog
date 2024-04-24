@@ -29,7 +29,8 @@ We released LogSlash, a method for reducing log volume without reducing analytic
 
 LogSlash intelligently reduces similar logs within a defined time window down to a single log line. For example, if an IP communicates to another IP 100 times a minute, instead of logging 100 log lines, LogSlash produces 1 log that says the event happened 100 times within that minute. Analytical value is retained while data volume is drastically reduced.
 
-![Simplified example of how LogSlash works](/assets/img/2023-06-15/logslash.webp)
+![Simplified example of how LogSlash works](/assets/img/2023-06-15/logslash.webp){: .mx-auto }
+<figcaption class="text-center">Simplified example of how LogSlash works</figcaption>
 
 Over the past few months we’ve worked with several large companies and have found that our initial estimate of 50% volume savings was wrong. These businesses are actually seeing around 80% log volume reduction when using LogSlash. Multiply those savings across trillions of logs and you can see how the cost benefit can be quite enormous, allowing organizations the headroom to send logs to their SIEM that they otherwise couldn’t afford.
 
@@ -39,11 +40,11 @@ LogSlash isn’t just for SIEMs. Training AI models on transactional data is bec
 
 The LogSlash method is designed to be implemented into many existing technologies and languages. The difference between them comes down to performance and ease of configuration, as each log type requires its own configuration. We originally released LogSlash as a set of Vector.dev scripts. They worked but the scripts proved to be extremely complicated and time consuming to create.
 
-![Vector script](/assets/img/2023-06-15/vector_script.webp)
+![Vector script](/assets/img/2023-06-15/vector_script.webp){: .mx-auto }
 
 [Steven Hostetler](https://www.linkedin.com/in/steven-hostetler/) released LogSlash as a Logstash config. [Slash-N-Stash](https://github.com/FoxIO-LLC/LogSlash/tree/main/Logstash) worked well but again, it took a lot of effort to build the config and get it working correctly.
 
-![Slash-N-Stash repository](/assets/img/2023-06-15/slash_n_stash_repo.webp)
+![Slash-N-Stash repository](/assets/img/2023-06-15/slash_n_stash_repo.webp){: .mx-auto }
 
 We developed LogSlash on Python and Kafka but the performance was so cost prohibitive that it wasn’t even worth releasing as the cost to run LogSlash needs to be infinitesimal compared to the savings.
 
@@ -55,13 +56,13 @@ That brings us to cwolves, a startup entirely based around the LogSlash method a
 
 The AI-based normalization and config builder is brilliant. For example, if your log uses the field name “data\_win\_eventdata\_ip\_src”, it automatically recognizes that as “Source IP” and knows how to configure LogSlash for that field. It will present you with the configuration it built so you can still manually modify it how you see fit, but the effort of building these configs is now gone. Amazing! For some organizations, cwolves may be worth it just for the auto-normalization alone.
 
-![cwolves dashboard](/assets/img/2023-06-15/cwolves_dashboard.webp)
+![cwolves dashboard](/assets/img/2023-06-15/cwolves_dashboard.webp){: .mx-auto }
 
 That’s LogSlash configuration writing and performance taken care of. Another hurdle is implementation. cwolves aims to solve this with easy cloud or on-prem implementation with the ability to get started on-cloud, in minutes, for free. This is a great way to test out LogSlash though I suspect that most organizations will want this on-prem or within their own VPC, so it’s great that they offer that option.
 
 The final hurdle to LogSlash is SIEM and AI model support. That is, they need to be aware that if the field “logslash=” exists in the log line, then it needs to duplicate the occurrence of each field by the logslash value while dividing fields that end in \_total by the logslash value. This is straightforward to implement and cwolves is already developing a Splunk App that does just this.
 
-![Splunk dashboard](/assets/img/2023-06-15/splunk_dashboard.webp)
+![Splunk dashboard](/assets/img/2023-06-15/splunk_dashboard.webp){: .mx-auto }
 
 With that Splunk App, cwolves makes LogSlash ready to go for existing Splunk customers. It also makes Splunk suddenly affordable and an attractive option for those who are SIEM shopping.
 
