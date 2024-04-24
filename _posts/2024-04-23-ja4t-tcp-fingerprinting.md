@@ -9,7 +9,7 @@ headshot-loc: /assets/img/headshots/john.jpg
 image: /assets/img/2024-04-23/tcp.gif
 ---
 
-And How It Can Block 60% of Internet Scan Traffic
+And How to Use It to Block Over 60% of Internet Scan Traffic
 
 ## TL;DR
 
