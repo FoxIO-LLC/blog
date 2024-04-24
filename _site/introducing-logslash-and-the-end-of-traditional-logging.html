@@ -66,7 +66,8 @@
 
 <p>LogSlash is free for internal business use and is available here: <a href="https://github.com/FoxIO-LLC/LogSlash">https://github.com/FoxIO-LLC/LogSlash</a></p>
 
-<p><img src="/assets/img/2023-01-21/locks.jpg" alt="My mouse-drawn version of a generic security blog post image" /></p>
+<p><img src="/assets/img/2023-01-21/locks.jpg" alt="My mouse-drawn version of a generic security blog post image" class="mx-auto" /></p>
+<figcaption class="text-center">My mouse-drawn version of a generic security blog post image</figcaption>
 
 <h2 id="the-too-many-logs-problem">The Too-Many-Logs Problem</h2>
 
@@ -84,7 +85,7 @@
 
 <p>As an example, Bob connects to Gmail and starts clicking through his emails. While going through the emails, he clicks a malicious link.</p>
 
-<p><img src="/assets/img/2023-01-21/logslash_firewall.png" alt="LogSlash firewall" /></p>
+<p><img src="/assets/img/2023-01-21/logslash_firewall.png" alt="LogSlash firewall" class="mx-auto" /></p>
 
 <p>These logs then flow through the LogSlash method before ingest into the logging platform following this logical configuration:</p>
 
@@ -97,7 +98,7 @@ Fields\_sum = bytes
 
 <p>The output fields now include “timestamp-end”, “bytes-total” and “logslash,” which shows how many times the particular event occurred. We’re ignoring all but the first srcport as that field holds little analytical value. If we wanted to retain each srcport, we could configure LogSlash to concatenate them with a comma delimiter instead.</p>
 
-<p><img src="/assets/img/2023-01-21/logslash.webp" alt="LogSlash" /></p>
+<p><img src="/assets/img/2023-01-21/logslash.webp" alt="LogSlash" class="mx-auto" /></p>
 
 <p>In this simplified example, we can see that Bob connected to Gmail 8 times over TLS/443 within a 53-second window with a total byte count of 3365kb and also attempted to connect to a malicious site once. LogSlash reduced the logs flowing into the log platform by 78% without any loss to the understanding of what happened. This can significantly reduce the cost to index, store, and process/search against log data, as well as reduce log platform licensing costs.</p>
 
@@ -109,7 +110,8 @@ Fields\_sum = bytes
 
 <h2 id="using-logslash-with-other-log-reduction-methods">Using LogSlash with other Log Reduction Methods</h2>
 
-<p><img src="/assets/img/2023-01-21/architecture_element.webp" alt="Just one example of where LogSlash could slot in your existing pipeline." /></p>
+<p><img src="/assets/img/2023-01-21/architecture_element.webp" alt="Just one example of where LogSlash could slot in your existing pipeline." class="mx-auto" /></p>
+<figcaption class="text-center">Just one example of where LogSlash could slot in your existing pipeline.</figcaption>
 
 <p>LogSlash is designed to work with other common log reduction methods such as standard compression, data deletion, and deduplication.</p>
 
@@ -121,7 +123,8 @@ Fields\_sum = bytes
 
 <h2 id="implementing-logslash">Implementing LogSlash</h2>
 
-<p><img src="/assets/img/2023-01-21/architecture_integrated.webp" alt="LogSlash could also be built directly into existing products for a more seamless, integrated experience." /></p>
+<p><img src="/assets/img/2023-01-21/architecture_integrated.webp" alt="LogSlash could also be built directly into existing products for a more seamless, integrated experience." class="mx-auto" /></p>
+<figcaption class="text-center">LogSlash could also be built directly into existing products for a more seamless, integrated experience.</figcaption>
 
 <p>LogSlash was designed as a method that could be easily implemented into existing logging technologies and tools that you’re using today. Much like how JA3 was originally released as a Zeek Script before being implemented into vendor technologies, we are releasing LogSlash as <a href="https://vector.dev/">Vector</a> scripts. Vector is an open-source, lightweight, ultra-fast logging pipeline tool that contains the functions necessary to support LogSlash. We will soon be releasing LogSlash as Kafka Streams scripts and Cribl packs as well.</p>
 
@@ -133,7 +136,8 @@ Fields\_sum = bytes
 
 <h2 id="future-development">Future Development</h2>
 
-<p><img src="/assets/img/2023-01-21/map.jpg" alt="This mouse-drawn pew-pew map doesn’t really have a purpose, honestly." /></p>
+<p><img src="/assets/img/2023-01-21/map.jpg" alt="This mouse-drawn pew-pew map doesn’t really have a purpose, honestly." class="mx-auto" /></p>
+<figcaption class="text-center">This mouse-drawn pew-pew map doesn’t really have a purpose, honestly.</figcaption>
 
 <p>While LogSlash is currently a set of simple scripts with a separate script for each log type, we’re working on a system that will adaptively recognize data types, so it can intelligently apply the appropriate LogSlash functions universally. This system will make it easy to onboard different log types with an initial configuration that can be tweaked. Logs will be LogSlashed on a rolling one-minute window by default, but this window will be configurable with potential savings dynamically displayed along with sample outputs.</p>
 
