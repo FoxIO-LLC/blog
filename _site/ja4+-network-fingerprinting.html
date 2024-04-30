@@ -68,18 +68,31 @@
 
 <p>JA4+ provides a suite of modular network fingerprints that are easy to use and easy to share, replacing the JA3 TLS fingerprinting standard from 2017. These methods are both human and machine readable to facilitate more effective threat-hunting and analysis. The use-cases for these fingerprints include scanning for threat actors, malware detection, session hijacking prevention, compliance automation, location tracking, DDoS detection, grouping of threat actors, reverse shell detection, and many more.</p>
 
-<p>Initial Fingerprints:<br />
-JA4 — TLS Client<br />
-JA4S — TLS Server Response<br />
-JA4H — HTTP Client<br />
-JA4L — Light Distance/Location<br />
-JA4X — X509 TLS Certificate<br />
-JA4SSH — SSH Traffic<br />
-More fingerprints are in development and will be added to the JA4+ family as they are released.</p>
+<p>JA4+ Fingerprints:</p>
+
+<p><a href="../assets/img/2023-09-26/ja4plusfingerprints.webp" data-lightbox="/assets/img/2023-09-26/ja4plusfingerprints.webp" data-title="JA4+ Fingerprints"><img src="../assets/img/2023-09-26/ja4plusfingerprints.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>More fingerprints are in development and will be added to the JA4+ family as they are released.</p>
+
+<p>UPDATE: Click here for the <a href="https://blog.foxio.io/ja4t-tcp-fingerprinting">JA4T/S/Scan — TCP Fingerprinting</a> blog.</p>
 
 <p><strong>Examples:</strong></p>
 
 <p><a href="../assets/img/2023-09-26/application_fingerprints_table.webp" data-lightbox="/assets/img/2023-09-26/application_fingerprints_table.webp" data-title="Application and fingerprints table"><img src="../assets/img/2023-09-26/application_fingerprints_table.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p><a href="../assets/img/2023-09-26/ja4x_sliver_c2_list.webp" data-lightbox="/assets/img/2023-09-26/ja4x_sliver_c2_list.webp" data-title="JA4X Sliver C2 list"><img src="../assets/img/2023-09-26/ja4x_sliver_c2_list.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>JA4+ is available here: <a href="https://github.com/FoxIO-LLC/ja4">https://github.com/FoxIO-LLC/ja4</a></p>
+
+<h2 id="what-is-ja4">What is JA4+</h2>
+
+<p>JA4+ is a set of simple yet powerful network fingerprints for multiple protocols that are both human and machine readable, facilitating improved threat-hunting and security analysis. If you are unfamiliar with network fingerprinting, I encourage you to read my blogs releasing JA3 <a href="https://medium.com/salesforce-engineering/tls-fingerprinting-with-ja3-and-ja3s-247362855967">here</a>, JARM <a href="https://medium.com/salesforce-engineering/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a">here</a>, and this excellent blog by Fastly on the <a href="https://www.fastly.com/blog/the-state-of-tls-fingerprinting-whats-working-what-isnt-and-whats-next">State of TLS Fingerprinting</a> which outlines the history of the aforementioned along with their problems. JA4+ brings dedicated support, keeping the methods up-to-date as the industry changes. Additionally, and by popular demand, an official JA4+ database of fingerprints, associated applications and recommended detection logic is in the process of being built.</p>
+
+<p>All JA4+ fingerprints have an <em>a_b_c</em> format, delimiting the different sections that make up the fingerprint. This allows for hunting and detection utilizing just <em>ab</em> or <em>ac</em> or <em>c</em> only. If one wanted to just do analysis on incoming cookies into their app, they would look at JA4H_c only. This new locality-preserving format facilitates deeper and richer analysis while remaining simple, easy to use, and allowing for extensibility.</p>
+
+<p>In this blog we are releasing JA4/S/H/L/X/SSH, or JA4+ for short. More fingerprints are in development and will be added to the JA4+ family as they are released.</p>
+
+<p><a href="../assets/img/2023-09-26/do_you_struggle_with_detection.webp" data-lightbox="/assets/img/2023-09-26/do_you_struggle_with_detection.webp" data-title="There is hope!"><img src="../assets/img/2023-09-26/do_you_struggle_with_detection.webp" alt="" class="mx-auto" style="" /></a></p>
 <figcaption class="text-center">There is hope!</figcaption>
 
 <h2 id="ja4-tls-client-fingerprint">JA4: TLS Client Fingerprint</h2>

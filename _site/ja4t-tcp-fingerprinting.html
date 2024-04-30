@@ -133,6 +133,14 @@ Original blog on JA4+: <a href="https://blog.foxio.io/ja4%2B-network-fingerprint
 
 <p><a href="../assets/img/2024-04-23/mobilecarriers.webp" data-lightbox="/assets/img/2024-04-23/mobilecarriers.webp" data-title="Mobile Carrier MSSs"><img src="../assets/img/2024-04-23/mobilecarriers.webp" alt="" class="mx-auto" style="" /></a></p>
 
+<p>Which means we can identify the carrier that devices are on:</p>
+
+<p><a href="../assets/img/2024-04-23/mobilecarriersja4ts.webp" data-lightbox="/assets/img/2024-04-23/mobilecarriersja4ts.webp" data-title="Mobile Carrier JA4Ts"><img src="../assets/img/2024-04-23/mobilecarriersja4ts.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>When a device is connected through a VPN, the MSS, and occasionally Window Size, are <a href="https://www.cloudflare.com/learning/network-layer/what-is-mss/">changed</a> based on the overhead of the VPN and encryption ciphers used. When a device is connected through a Proxy, the TCP fingerprint of the proxy is seen on the server side, not the client. For example, the complete change in fingerprint when an iPhone connects through iCloud Relay:</p>
+
+<p><a href="../assets/img/2024-04-23/vpnja4ts.webp" data-lightbox="/assets/img/2024-04-23/vpnja4ts.webp" data-title="VPN JA4Ts"><img src="../assets/img/2024-04-23/vpnja4ts.webp" alt="" class="mx-auto" style="" /></a></p>
+
 <h2 id="ja4ts-tcp-server-response-fingerprint">JA4TS: TCP Server Response Fingerprint</h2>
 
 <p>While JA4T is based on the client’s TCP SYN packet, JA4TS is based on the SYN-ACK response.</p>

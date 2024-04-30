@@ -78,11 +78,11 @@ Each operating system has different combinations of window size, options, and wi
 
 Changes in the MSS (part _c_), can help identify network conditions for the device. For example, each mobile carrier sets a different MSS for the overhead in their cell network:
 
-{% lightbox /assets/img/2024-04-23/mobilecarriers.webp --data="/assets/img/2024-04-23/mobilecarriers.webp" --title="Mobile Carrier MSSs" --class="mx-auto" %
+{% lightbox /assets/img/2024-04-23/mobilecarriers.webp --data="/assets/img/2024-04-23/mobilecarriers.webp" --title="Mobile Carrier MSSs" --class="mx-auto" %}
 
 Which means we can identify the carrier that devices are on:
 
-{% lightbox /assets/img/2024-04-23/mobilecarriersja4ts.webp --data="/assets/img/2024-04-23/mobilecarriersja4ts.webp" --title="Mobile Carrier JA4Ts" --class="mx-auto" %
+{% lightbox /assets/img/2024-04-23/mobilecarriersja4ts.webp --data="/assets/img/2024-04-23/mobilecarriersja4ts.webp" --title="Mobile Carrier JA4Ts" --class="mx-auto" %}
 
 When a device is connected through a VPN, the MSS, and occasionally Window Size, are [changed](https://www.cloudflare.com/learning/network-layer/what-is-mss/) based on the overhead of the VPN and encryption ciphers used. When a device is connected through a Proxy, the TCP fingerprint of the proxy is seen on the server side, not the client. For example, the complete change in fingerprint when an iPhone connects through iCloud Relay:
 

@@ -15,20 +15,19 @@ In this blog I go over the new JA4+ network fingerprinting methods and examples 
 
 JA4+ provides a suite of modular network fingerprints that are easy to use and easy to share, replacing the JA3 TLS fingerprinting standard from 2017. These methods are both human and machine readable to facilitate more effective threat-hunting and analysis. The use-cases for these fingerprints include scanning for threat actors, malware detection, session hijacking prevention, compliance automation, location tracking, DDoS detection, grouping of threat actors, reverse shell detection, and many more.
 
-Initial Fingerprints:\
-JA4 — TLS Client\
-JA4S — TLS Server Response\
-JA4H — HTTP Client\
-JA4L — Light Distance/Location\
-JA4X — X509 TLS Certificate\
-JA4SSH — SSH Traffic\
+JA4+ Fingerprints:
+
+{% lightbox /assets/img/2023-09-26/ja4plusfingerprints.webp --data="/assets/img/2023-09-26/ja4plusfingerprints.webp" --title="JA4+ Fingerprints" --class="mx-auto" %}
+
 More fingerprints are in development and will be added to the JA4+ family as they are released.
+
+UPDATE: Click here for the [JA4T/S/Scan — TCP Fingerprinting](https://blog.foxio.io/ja4t-tcp-fingerprinting) blog.
 
 **Examples:**
 
-{% lightbox /assets/img/2023-09-26/application_fingerprints_table.webp --data="/assets/img/2023-09-26/application_fingerprints_table.webp" --title="Application and fingerprints table" --class="mx-auto" %
+{% lightbox /assets/img/2023-09-26/application_fingerprints_table.webp --data="/assets/img/2023-09-26/application_fingerprints_table.webp" --title="Application and fingerprints table" --class="mx-auto" %}
 
-{% lightbox /assets/img/2023-09-26/ja4x_sliver_c2_list.webp --data="/assets/img/2023-09-26/ja4x_sliver_c2_list.webp" --title="JA4X Sliver C2 list" --class="mx-auto" %
+{% lightbox /assets/img/2023-09-26/ja4x_sliver_c2_list.webp --data="/assets/img/2023-09-26/ja4x_sliver_c2_list.webp" --title="JA4X Sliver C2 list" --class="mx-auto" %}
 
 JA4+ is available here: [https://github.com/FoxIO-LLC/ja4](https://github.com/FoxIO-LLC/ja4)
 
