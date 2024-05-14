@@ -17,7 +17,7 @@ This is an investigation of Surfshark and NordVPN using JA4TCP Fingerprinting.
 
 We found that both Surfshark and NordVPN route certain ports through TCP proxies such as port 5060, which is only used for unencrypted phone calls. No other VPN providers proxy traffic in this way. The reason for the proxying is unknown. Additionally, we found that NordVPN’s proxy is misconfigured, causing increased latency and bandwidth usage.
 
-Resources:
+Resources:\
 **JA4+ Network Fingerprinting:** [https://github.com/FoxIO-LLC/ja4](https://github.com/FoxIO-LLC/ja4)\
 **JA4+ Blog:** [https://blog.foxio.io/ja4%2B-network-fingerprinting](https://blog.foxio.io/ja4%2B-network-fingerprinting)\
 **JA4TCP Blog:** [https://blog.foxio.io/ja4t-tcp-fingerprinting](https://blog.foxio.io/ja4t-tcp-fingerprinting)\
