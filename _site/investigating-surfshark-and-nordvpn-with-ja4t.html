@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/lightbox.css">
+
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Investigating Surfshark and NordVPN with JA4T" />
+<meta name="author" content="John Althouse" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Surfshark &amp; NordVPN Route Certain Ports Through Proxies?" />
+<meta property="og:description" content="Surfshark &amp; NordVPN Route Certain Ports Through Proxies?" />
+<link rel="canonical" href="http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t" />
+<meta property="og:url" content="http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t" />
+<meta property="og:site_name" content="FoxIO Blog" />
+<meta property="og:image" content="http://localhost:8000/assets/img/2024-05-14/telegram.webp" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-14T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:8000/assets/img/2024-05-14/telegram.webp" />
+<meta property="twitter:title" content="Investigating Surfshark and NordVPN with JA4T" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@John Althouse" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Althouse"},"dateModified":"2024-05-14T00:00:00-05:00","datePublished":"2024-05-14T00:00:00-05:00","description":"Surfshark &amp; NordVPN Route Certain Ports Through Proxies?","headline":"Investigating Surfshark and NordVPN with JA4T","image":"http://localhost:8000/assets/img/2024-05-14/telegram.webp","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:8000/assets/img/logos/logo.png"},"name":"John Althouse"},"url":"http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TFHVF31TN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8TFHVF31TN');
+        </script>
+
+        <title>Investigating Surfshark and NordVPN with JA4T • FoxIO Blog</title>
+    </head>
+    <body class="flex flex-col min-h-[100dvh] lg:min-h-screen">
+        <script src="/assets/js/lightbox-plus-jquery.js"></script>
+        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 px-4 mx-auto bg-white/50 backdrop-blur-sm lg:px-0">
+    <a href="/" class="m-auto">
+        <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
+    </a>
+</nav>
+
+        <section class="flex-grow px-4 mx-auto mt-10 mb-20 prose prose-purple lg:px-0">
+            <h1>
+                Investigating Surfshark and NordVPN with JA4T
+            </h1>
+
+            <div class="flex not-prose">
+                <img src="/assets/img/headshots/john.jpg" alt="John Althouse" class="h-10 my-auto mr-2 rounded-full aspect-square" />
+                <div class="my-auto">
+                    <p class="text-sm font-semibold">John Althouse</p>
+                    <p class="text-xs text-black-light">May 14, 2024</p>
+                </div>
+            </div>
+
+            <p>Surfshark &amp; NordVPN Route Certain Ports Through Proxies?</p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>This is an investigation of Surfshark and NordVPN using JA4TCP Fingerprinting.</p>
+
+<p>We found that both Surfshark and NordVPN route certain ports through TCP proxies such as port 5060, which is only used for unencrypted phone calls. No other VPN providers proxy traffic in this way. The reason for the proxying is unknown. Additionally, we found that NordVPN’s proxy is misconfigured, causing increased latency and bandwidth usage.</p>
+
+<p>Resources:
+<strong>JA4+ Network Fingerprinting:</strong> <a href="https://github.com/FoxIO-LLC/ja4">https://github.com/FoxIO-LLC/ja4</a><br />
+<strong>JA4+ Blog:</strong> <a href="https://blog.foxio.io/ja4%2B-network-fingerprinting">https://blog.foxio.io/ja4%2B-network-fingerprinting</a><br />
+<strong>JA4TCP Blog:</strong> <a href="https://blog.foxio.io/ja4t-tcp-fingerprinting">https://blog.foxio.io/ja4t-tcp-fingerprinting</a><br />
+<strong>JA4TScan:</strong> <a href="https://github.com/FoxIO-LLC/ja4tscan">https://github.com/FoxIO-LLC/ja4tscan</a><br />
+<strong>NMap:</strong> <a href="https://nmap.org/">https://nmap.org/</a></p>
+
+<h2 id="quick-refresher-on-ja4-fingerprinting">Quick Refresher on JA4+ Fingerprinting</h2>
+
+<p><a href="https://github.com/FoxIO-LLC/ja4">JA4+</a> is a suite of network fingerprinting methods that are being implemented across the industry and consist of the following methods, with more being added on a regular basis:</p>
+
+<p><a href="../assets/img/2024-05-14/ja4+_methods.webp" data-lightbox="/assets/img/2024-05-14/ja4+_methods.webp" data-title="JA4+ methods"><img src="../assets/img/2024-05-14/ja4+_methods.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>For this investigation, we are primarily utilizing JA4TCP (JA4T). You can read up on how JA4T works in <a href="https://blog.foxio.io/ja4t-tcp-fingerprinting">this blog post</a>. In short, it’s a collection of artifacts from the TCP SYN and SYN-ACK packets which make up the TCP three-way handshake. These fingerprints allow us to fingerprint client and server operating systems, devices, certain applications, hosting/provider characteristics, if a connection is going through a tunnel, VPN or proxy, and enable us to troubleshoot network issues.</p>
+
+<p><a href="../assets/img/2024-05-14/ja4tgif.gif" data-lightbox="/assets/img/2024-05-14/ja4tgif.gif" data-title="JA4T Gif"><img src="../assets/img/2024-05-14/ja4tgif.gif" alt="" class="mx-auto" style="" /></a></p>
+
+<p><a href="../assets/img/2024-05-14/examples.webp" data-lightbox="/assets/img/2024-05-14/examples.webp" data-title="JA4T examples"><img src="../assets/img/2024-05-14/examples.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>For this blog, we will also be focusing on the Maximum Segment Size (MSS) part of the JA4T/S fingerprint. The MSS is the largest data payload size that a source will accept per packet, and is dependent on the overhead in the network connection. For example, the most common Maximum Segment Size (MSS) initially set is 1460, based on an ethernet Maximum Transmission Unit (MTU) of 1500. Observing an MSS of 1380 indicates that there is overhead on the network path, such as a tunnel or VPN, requiring a reduced MSS to account for it. Unique network conditions produce different amounts of overhead:</p>
+
+<p><a href="../assets/img/2024-05-14/mtu.webp" data-lightbox="/assets/img/2024-05-14/mtu.webp" data-title="MTU"><img src="../assets/img/2024-05-14/mtu.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>Setting the MSS option to be larger than the actual available size will result in poor network performance, latency, and fragmentation. <a href="https://www.cloudflare.com/learning/network-layer/what-is-mss/">MSS Clamping</a> is a common method used to avoid this issue.</p>
+
+<h2 id="surfshark--nordvpn-route-certain-ports-through-proxies">Surfshark &amp; NordVPN Route Certain Ports Through Proxies?</h2>
+
+<p>Nord Security and Surfshark merged in 2022, and, together, they are the world’s largest VPN provider. While testing <a href="https://blog.foxio.io/ja4t-tcp-fingerprinting">JA4T</a> through NordVPN and listening on the server side, I noticed something odd in my network logs. Connections over port 443 from NordVPN had a JA4T of <em>65535_2–4–8–1–3_1460_9</em> (Unix), no matter what the client was. On the client side, I would see a normal-looking JA4T fingerprint where the MSS was 1380 (to account for the VPN overhead). So why does the server see a MSS of 1460? I tried connecting to the server using a different port, 8443, and only then did the server see the correct JA4T fingerprint of my client.</p>
+
+<p>What is going on here? I did some further research, and here is what I found:</p>
+
+<p>Observed network traffic on the <strong>server</strong> side:</p>
+
+<p><a href="../assets/img/2024-05-14/server_traffic.webp" data-lightbox="/assets/img/2024-05-14/server_traffic.webp" data-title="Observed network traffic on the server side"><img src="../assets/img/2024-05-14/server_traffic.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>Why does the client TCP fingerprint change from Windows to Unix when connecting through Nord and Surfshark, but only over ports 80 and 443?</p>
+
+<p>Observed network traffic on the <strong>client</strong> side:</p>
+
+<p><a href="../assets/img/2024-05-14/client_traffic.webp" data-lightbox="/assets/img/2024-05-14/client_traffic.webp" data-title="Observed network traffic on the client side"><img src="../assets/img/2024-05-14/client_traffic.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>Why is the server’s TCP response fingerprint different when connecting through Nord and Surfshark, but only over ports 80 and 443?</p>
+
+<p>When looking at latency measurements and hop counts with <a href="https://blog.foxio.io/ja4%2B-network-fingerprinting">JA4L</a>, I noticed that NordVPN and Surfshark would initiate the TCP three-way handshake from their exit node and that the hop counts were different, but only over ports 80 and 443. All of these observations led me to believe that NordVPN and Surfshark are rerouting certain ports to proxies that intercept the TCP connection.</p>
+
+<p>To confirm this theory, I ran a SYN scan of all ports against an IP address for which no server exists. The scan should return no results since the destination server does not exist. However, both NordVPN and Surfshark responded on the following ports, which confirms that they are routing these ports through TCP proxies:</p>
+
+<p><a href="../assets/img/2024-05-14/tcp_proxy_ports.webp" data-lightbox="/assets/img/2024-05-14/tcp_proxy_ports.webp" data-title="Surfshark and NordVPN TCP proxy ports"><img src="../assets/img/2024-05-14/tcp_proxy_ports.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>If you have NordVPN or Surfshark, you can test this yourself by running:</p>
+
+<p><code class="language-plaintext highlighter-rouge">nmap -v -Pn -n 203.0.113.100</code> (or use any other IP that is not in use)</p>
+
+<p><a href="../assets/img/2024-05-14/nmap.webp" data-lightbox="/assets/img/2024-05-14/nmap.webp" data-title="Nmap scan on unused port"><img src="../assets/img/2024-05-14/nmap.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p><a href="https://telegram.org/">Telegram</a> is a service that runs over several ports, including ports 80 and 443. Telegram does not use TLS but instead uses <a href="https://core.telegram.org/mtproto">MTProto</a>, a proprietary protocol that encrypts messages over several protocols, including HTTP. I connected directly to Telegram and then connected through NordVPN to see if there was a difference:</p>
+
+<p><a href="../assets/img/2024-05-14/telegram.webp" data-lightbox="/assets/img/2024-05-14/telegram.webp" data-title="Connecting to Telegram directly vs. connecting via NordVPN"><img src="../assets/img/2024-05-14/telegram.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>When connecting directly, the client sends an HTTP POST to the server. The server responds with an ACK, then a FIN ACK to close the connection. When connecting over NordVPN, the client sends an HTTP POST to the server, the server responds with an HTTP 200 OK, and then both the client and the server send FIN ACKs to close the connection.</p>
+
+<p>This discrepancy is interesting. I don’t know what the reason is, but it is repeatable.</p>
+
+<p>I tested this with other VPN providers, including Private Internet Access and Proton VPN, but did not observe the same behavior. The discrepancy appears to be unique to Surfshark and NordVPN. So, why are they running only these ports through TCP proxies?</p>
+
+<p>…</p>
+
+<p>Let’s assume that it’s for performance reasons, perhaps as a load-balancing strategy.</p>
+
+<p>NordVPN’s TCP proxy has a JA4T of <em>65535_2–4–8–1–3_1460_9</em>. Notice the MSS of 1460.</p>
+
+<p>The actual client’s JA4T is <em>64860_2–1–3–1–1–4_1380_8</em>. Notice the MSS of 1380 due to the VPN overhead.</p>
+
+<p>Advertising an MSS higher than what the client can accept should result in worse performance, not better. I tested this theory by connecting to a website with NordVPN over port 443 (through their proxy) and over port 8443 (bypassing the proxy). The results were as expected:</p>
+
+<p><a href="../assets/img/2024-05-14/nordvpn_options.webp" data-lightbox="/assets/img/2024-05-14/nordvpn_options.webp" data-title="Connecting to a website with NordVPN over port 443 and port 8443"><img src="../assets/img/2024-05-14/nordvpn_options.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>When bypassing Nord’s proxy, the server sends data with a packet size of 1380: the maximum segment size of the VPN connection. In this test, 381 packets were sent back and forth to load the webpage completely.</p>
+
+<p>When going through Nord’s proxy, the server sends packets with the requested segment size of 1460. The proxy, unable to forward those packets to the client because the client can only handle 1380, sends hundreds of TCP SACKs to the server with updated Window Sizes, essentially asking the server to resend the previous packets, but at smaller sizes. As a result, 962 packets were needed to load the same webpage. This back-and-forth increased latency for the client and doubled the bandwidth between NordVPN and the server, as the server had to send the same data twice.</p>
+
+<p>So, the proxies are not for performance reasons?</p>
+
+<p>Interestingly, Surfshark’s TCP proxy has a JA4T of <em>65170_2–4–8–1–3_1330_10.</em> Notice the MSS of 1330, which is the correct size given the overhead of the VPN and the proxy, and therefore does not suffer the performance impact that Nord has.</p>
+
+<p>Because of this, I believe that NordVPN is using a similar proxy infrastructure to Surfshark’s — for still unknown reasons — but NordVPN has its proxy misconfigured by not <a href="https://www.cloudflare.com/learning/network-layer/what-is-mss/">clamping MSS</a> to 1330, like Surfshark. Fixing this will reduce latency for customers and reduce NordVPN’s infrastructure cost.</p>
+
+<p>Both NordVPN and Surfshark tout the ability to block viruses and ads, so perhaps the proxies are related to that. But then why proxy port 5060, which is only used for unencrypted phone calls? I contacted NordVPN to find out — there has to be a good reason:</p>
+
+<p><a href="../assets/img/2024-05-14/nordvpn_contact.webp" data-lightbox="/assets/img/2024-05-14/nordvpn_contact.webp" data-title="NordVPN contact query"><img src="../assets/img/2024-05-14/nordvpn_contact.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p><a href="../assets/img/2024-05-14/nordvpn_response.webp" data-lightbox="/assets/img/2024-05-14/nordvpn_response.webp" data-title="NordVPN contact response"><img src="../assets/img/2024-05-14/nordvpn_response.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>It appears that at least the support team is unaware of the proxy servers.</p>
+
+<p>Other potential reasons for the proxies include being a <a href="https://www.imperva.com/learn/ddos/transparent-proxy/">transparent caching web proxy</a>. <a href="https://dnsrpz.info/">DNS RPZ</a> may account for port 53. <a href="https://www.fcc.gov/calea">CALEA</a> could explain port 5060, but so could <a href="https://learn.microsoft.com/en-us/openspecs/office_protocols/ms-sdpext/d2c16650-cefb-4f77-acbe-b958e909135b">SRTP</a>. Any assumptions would be pure speculation without more data and therefore this blog makes none.</p>
+
+<p>I hate to end this blog with more questions than answers, so I will post an update if I find out more. Until then, this was an interesting hunt that, at the very least, found performance misconfigurations at NordVPN, all triggered by an unexpected JA4T fingerprint in my network logs.</p>
+
+        </section>
+        <footer class="flex h-40 px-4 bg-gray lg:px-0">
+    <div class="flex flex-col m-auto">
+        <a href="https://foxio.io" class="m-auto">
+            <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">
+        </a>
+        <p class="w-full text-xs text-center text-black-light">© 2024 FoxIO</p>
+    </div>
+</footer>
+
+    </body>
+</html>
