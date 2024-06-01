@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en" data-theme="FoxIO Blog">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -7,6 +7,10 @@
         <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
         <link rel="stylesheet" href="/assets/css/styles.css">
         <link rel="stylesheet" href="/assets/css/lightbox.css">
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
 
         <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
@@ -41,15 +45,54 @@
 
         <title>Investigating Surfshark and NordVPN with JA4T • FoxIO Blog</title>
     </head>
-    <body class="flex flex-col min-h-[100dvh] lg:min-h-screen">
+    <body class="flex flex-col min-h-[100dvh] lg:h-[100vh] bg-white">
         <script src="/assets/js/lightbox-plus-jquery.js"></script>
-        <nav class="sticky top-0 left-0 z-10 flex w-full h-20 px-4 mx-auto bg-white/50 backdrop-blur-sm lg:px-0">
-    <a href="/" class="m-auto">
-        <img src="/assets/img/logos/foxio.png" alt="FoxIO logo" class="h-10" />
+        <nav id="navbar" class="fixed top-0 left-0 z-10 w-full h-[7.5vh] bg-opacity-75 backdrop-blur-sm shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-white">
+  <div class="items-center justify-between hidden w-2/3 h-full px-0 mx-auto text-sm lg:flex">
+    <a href="/" class="flex items-center">
+      <img src="/assets/img/logos/foxio_wordmark.png" alt="FoxIO logo" class="h-5 my-auto" />
     </a>
+    <div class="items-center hidden space-x-4 font-semibold lg:flex">
+      <a href="https://foxio.io/" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between w-full h-full px-4 dropdown lg:hidden">
+    <a href="/" class="flex items-center">
+      <img src="/assets/img/logos/foxio_wordmark.png" alt="FoxIO logo" class="h-5 my-auto" />
+    </a>
+    <div id="mobile-drawer-toggle" tabindex="0" class="text-xl text-purple ri-menu-fill"></div>
+    <ul
+      id="mobile-drawer"
+      tabindex="0"
+      class="z-20 dropdown-content flex flex-col p-4 space-y-4 font-semibold dropdown-end fixed left-0 top-[7.5vh] w-screen shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-white text-black"
+    >
+      <li>
+        <a href="https://foxio.io/" target="_blank" class="text-xl"> FoxIO </a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const navBar = document.getElementById("navbar");
+    const mobileDrawerToggle = document.getElementById("mobile-drawer-toggle");
+
+    if (navBar && mobileDrawerToggle) {
+      mobileDrawerToggle.addEventListener("click", () => {
+        navBar.classList.remove("bg-opacity-75", "shadow-gray/10", "shadow-[inset_0px_-1px_1px]");
+        navBar.classList.add("bg-opacity-100");
+      });
+      document.addEventListener("click", (e) => {
+        if (e.target !== mobileDrawerToggle) {
+          navBar.classList.add("bg-opacity-75", "shadow-gray/10", "shadow-[inset_0px_-1px_1px]");
+          navBar.classList.remove("bg-opacity-100");
+        }
+      });
+    }
+  </script>
 </nav>
 
-        <section class="flex-grow px-4 mx-auto mt-10 mb-20 prose prose-purple lg:px-0">
+        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose bg-white prose-purple lg:px-0">
             <h1>
                 Investigating Surfshark and NordVPN with JA4T
             </h1>
@@ -70,7 +113,7 @@
 
 <p>We found that both Surfshark and NordVPN route certain ports through TCP proxies such as port 5060, which is only used for unencrypted phone calls. No other VPN providers proxy traffic in this way. The reason for the proxying is unknown. Additionally, we found that NordVPN’s proxy is misconfigured, causing increased latency and bandwidth usage.</p>
 
-<p>Resources:
+<p>Resources:<br />
 <strong>JA4+ Network Fingerprinting:</strong> <a href="https://github.com/FoxIO-LLC/ja4">https://github.com/FoxIO-LLC/ja4</a><br />
 <strong>JA4+ Blog:</strong> <a href="https://blog.foxio.io/ja4%2B-network-fingerprinting">https://blog.foxio.io/ja4%2B-network-fingerprinting</a><br />
 <strong>JA4TCP Blog:</strong> <a href="https://blog.foxio.io/ja4t-tcp-fingerprinting">https://blog.foxio.io/ja4t-tcp-fingerprinting</a><br />
@@ -169,15 +212,31 @@
 
 <p>I hate to end this blog with more questions than answers, so I will post an update if I find out more. Until then, this was an interesting hunt that, at the very least, found performance misconfigurations at NordVPN, all triggered by an unexpected JA4T fingerprint in my network logs.</p>
 
-        </section>
-        <footer class="flex h-40 px-4 bg-gray lg:px-0">
-    <div class="flex flex-col m-auto">
-        <a href="https://foxio.io" class="m-auto">
-            <img src="/assets/img/logos/foxio_logo_wordmark.png" alt="FoxIO logo" class="h-20 mb-2">
-        </a>
-        <p class="w-full text-xs text-center text-black-light">© 2024 FoxIO</p>
-    </div>
-</footer>
+        </div>
 
+        <footer class="w-full py-4 bg-white">
+    <div class="flex flex-col justify-center px-4 mx-auto space-y-8 lg:px-0 lg:w-2/3">
+      <hr class="w-full border-t border-opacity-10 border-gray" />
+      <div class="flex flex-col w-full space-y-8 text-sm lg:space-y-0 lg:justify-between lg:flex-row">
+        <div class="flex flex-col space-y-4">
+          <a href="/">
+            <img src="/assets/img/logos/foxio_wordmark.png" class="h-5 my-auto" alt="FoxIO Logo" />
+          </a>
+          <p class="font-medium text-gray">The FoxIO blog</p>
+          <div class="flex items-center space-x-4">
+            <a href="https://www.linkedin.com/company/foxio-llc" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100">
+              <i class="text-xl ri-linkedin-fill"></i>
+            </a>
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://foxio.io/" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
+        </div>
+      </div>
+      <div class="self-end text-xs text-gray">
+        <p>© 2024 FoxIO</p>
+      </div>
+    </div>
+  </footer>
     </body>
 </html>

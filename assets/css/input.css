@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* element animations */
+[class*="hover:"] {
+    transition: all 0.5s ease;
+  }
+
+  /* scrollbar design */
+  ::-webkit-scrollbar {
+    background-color: black;
+    width: 0.5rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #8c8c8c;
+    border-radius: 1rem;
+  }

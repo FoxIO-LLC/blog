@@ -1,5 +1,10 @@
 module.exports = {
-    content: ["./_layouts/*.{html,md}", "./_posts/*.{html,md}", "./_includes/*.{html,md}", "./_site/*.{html,md}"],
+    content: [
+      "./_layouts/*.{html,md}",
+      "./_posts/*.{html,md}",
+      "./_includes/*.{html,md}",
+      "./_site/*.{html,md}"
+    ],
     theme: {
       extend: {
         colors: {
@@ -8,7 +13,8 @@ module.exports = {
               light: "#7D4EF6",
             },
             gray: {
-              DEFAULT: "#F7F7F7",
+              DEFAULT: "#4B5563",
+              light: "#F5F5F7",
             },
             black: {
               DEFAULT: "#242424",
@@ -36,5 +42,24 @@ module.exports = {
 
       },
     },
-    plugins: [require("@tailwindcss/typography")],
+    daisyui: {
+      themes: [
+        {
+          ["FoxIO Blog"]: {
+            primary: "#6E3AF5",
+            secondary: "#7D4EF6",
+            accent: "#000000",
+            neutral: "#4B5563",
+            "base-100": "#FFFFFF",
+            success: "#22C55E",
+            warning: "#EAB308",
+            error: "#EF4444",
+          },
+        },
+      ],
+    },
+    plugins: [
+      require("@tailwindcss/typography"),
+      require("daisyui"),
+    ],
   };

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en" data-theme="FoxIO Blog">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -7,6 +7,10 @@
         <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
         <link rel="stylesheet" href="/assets/css/styles.css">
         <link rel="stylesheet" href="/assets/css/lightbox.css">
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
 
         {% seo title=false %}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TFHVF31TN"></script>
@@ -20,10 +24,11 @@
 
         <title>{{ page.title }} • FoxIO Blog</title>
     </head>
-    <body class="flex flex-col min-h-[100dvh] lg:min-h-screen">
+    <body class="flex flex-col min-h-[100dvh] lg:h-[100vh] bg-white">
         <script src="/assets/js/lightbox-plus-jquery.js"></script>
         {% include nav.html %}
-        <section class="flex-grow px-4 mx-auto mt-10 mb-20 prose prose-purple lg:px-0">
+
+        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose bg-white prose-purple lg:px-0">
             <h1>
                 {{ page.title }}
             </h1>
@@ -37,7 +42,8 @@
             </div>
 
             {{ content }}
-        </section>
+        </div>
+
         {% include footer.html %}
     </body>
 </html>

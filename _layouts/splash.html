@@ -1,11 +1,15 @@
 <!doctype html>
-<html>
+<html lang="en" data-theme="FoxIO Blog">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
         <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
         <link rel="stylesheet" href="/assets/css/styles.css">
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
 
         {% seo title=false %}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TFHVF31TN"></script>
@@ -19,11 +23,13 @@
 
         <title>FoxIO Blog</title>
     </head>
-    <body class="flex flex-col min-h-[100dvh] lg:min-h-screen">
+    <body class="flex flex-col min-h-[100dvh] lg:h-[100vh] bg-white">
         {% include nav.html %}
-        <section class="flex-grow px-4 mx-auto mt-10 mb-20 text-black max-w-none lg:max-w-prose not-prose lg:px-0">
+
+        <div class="flex-grow px-4 py-12 bg-white mx-auto mt-[7.5vh] text-black max-w-none lg:max-w-prose not-prose lg:px-0">
             {{ content }}
-        </section>
+        </div>
+
         {% include footer.html %}
     </body>
 </html>
