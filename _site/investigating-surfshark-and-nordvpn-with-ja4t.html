@@ -12,6 +12,7 @@
           rel="stylesheet"
         />
 
+        <meta name="twitter:image" content="http://localhost:8000/assets/img/2024-05-14/telegram.webp">
         <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Investigating Surfshark and NordVPN with JA4T" />
@@ -25,7 +26,7 @@
 <meta property="og:image" content="http://localhost:8000/assets/img/2024-05-14/telegram.webp" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-05-14T00:00:00-05:00" />
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="http://localhost:8000/assets/img/2024-05-14/telegram.webp" />
 <meta property="twitter:title" content="Investigating Surfshark and NordVPN with JA4T" />
 <meta name="twitter:site" content="@" />
@@ -118,7 +119,8 @@
 <strong>JA4+ Blog:</strong> <a href="https://blog.foxio.io/ja4%2B-network-fingerprinting">https://blog.foxio.io/ja4%2B-network-fingerprinting</a><br />
 <strong>JA4TCP Blog:</strong> <a href="https://blog.foxio.io/ja4t-tcp-fingerprinting">https://blog.foxio.io/ja4t-tcp-fingerprinting</a><br />
 <strong>JA4TScan:</strong> <a href="https://github.com/FoxIO-LLC/ja4tscan">https://github.com/FoxIO-LLC/ja4tscan</a><br />
-<strong>NMap:</strong> <a href="https://nmap.org/">https://nmap.org/</a></p>
+<strong>NMap:</strong> <a href="https://nmap.org/">https://nmap.org/</a><br />
+<strong>gait:</strong> <a href="https://github.com/sandialabs/gait">https://github.com/sandialabs/gait</a></p>
 
 <h2 id="quick-refresher-on-ja4-fingerprinting">Quick Refresher on JA4+ Fingerprinting</h2>
 
@@ -211,6 +213,18 @@
 <p>Other potential reasons for the proxies include being a <a href="https://www.imperva.com/learn/ddos/transparent-proxy/">transparent caching web proxy</a>. <a href="https://dnsrpz.info/">DNS RPZ</a> may account for port 53. <a href="https://www.fcc.gov/calea">CALEA</a> could explain port 5060, but so could <a href="https://learn.microsoft.com/en-us/openspecs/office_protocols/ms-sdpext/d2c16650-cefb-4f77-acbe-b958e909135b">SRTP</a>. Any assumptions would be pure speculation without more data and therefore this blog makes none.</p>
 
 <p>I hate to end this blog with more questions than answers, so I will post an update if I find out more. Until then, this was an interesting hunt that, at the very least, found performance misconfigurations at NordVPN, all triggered by an unexpected JA4T fingerprint in my network logs.</p>
+
+<h3 id="update-5152024">UPDATE 5/15/2024</h3>
+
+<p>NordVPN has responded.</p>
+
+<p><a href="../assets/img/2024-05-14/nordvpn_response_2.webp" data-lightbox="/assets/img/2024-05-14/nordvpn_response_2.webp" data-title="NordVPN X response"><img src="../assets/img/2024-05-14/nordvpn_response_2.webp" alt="" class="mx-auto" style="" /></a></p>
+
+<p>That patent is <a href="https://patents.google.com/patent/US11632267B2/en">https://patents.google.com/patent/US11632267B2/en</a> which looks to be a method of offloading TCP overhead through a VPN connection. The idea being that if a connection is lossy (think mobile phone with a poor signal), the TCP retransmissions are only on one side of the connection rather than all the way back and forth.</p>
+
+<p>This makes sense and the patent would explain why we’re not seeing this from other VPN vendors. Though, I’m still confused about the amount of TCP SACKS seen from NordVPN on the server side as well as the discrepancy in MSS between Nord and Surfshark. That still may be worth a look on their end.</p>
+
+<p>In any case, I hope this blog demonstrates the relevance and value of analyzing all of the low-level aspects of connections. Thanks to NordVPN for the explanation!</p>
 
         </div>
 

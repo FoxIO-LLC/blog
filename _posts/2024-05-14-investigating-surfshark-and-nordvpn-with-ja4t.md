@@ -22,7 +22,8 @@ Resources:\
 **JA4+ Blog:** [https://blog.foxio.io/ja4%2B-network-fingerprinting](https://blog.foxio.io/ja4%2B-network-fingerprinting)\
 **JA4TCP Blog:** [https://blog.foxio.io/ja4t-tcp-fingerprinting](https://blog.foxio.io/ja4t-tcp-fingerprinting)\
 **JA4TScan:** [https://github.com/FoxIO-LLC/ja4tscan](https://github.com/FoxIO-LLC/ja4tscan)\
-**NMap:** [https://nmap.org/](https://nmap.org/)
+**NMap:** [https://nmap.org/](https://nmap.org/)\
+**gait:** [https://github.com/sandialabs/gait](https://github.com/sandialabs/gait)
 
 ## Quick Refresher on JA4+ Fingerprinting
 
@@ -115,3 +116,15 @@ It appears that at least the support team is unaware of the proxy servers.
 Other potential reasons for the proxies include being a [transparent caching web proxy](https://www.imperva.com/learn/ddos/transparent-proxy/). [DNS RPZ](https://dnsrpz.info/) may account for port 53. [CALEA](https://www.fcc.gov/calea) could explain port 5060, but so could [SRTP](https://learn.microsoft.com/en-us/openspecs/office_protocols/ms-sdpext/d2c16650-cefb-4f77-acbe-b958e909135b). Any assumptions would be pure speculation without more data and therefore this blog makes none.
 
 I hate to end this blog with more questions than answers, so I will post an update if I find out more. Until then, this was an interesting hunt that, at the very least, found performance misconfigurations at NordVPN, all triggered by an unexpected JA4T fingerprint in my network logs.
+
+### UPDATE 5/15/2024
+
+NordVPN has responded.
+
+{% lightbox /assets/img/2024-05-14/nordvpn_response_2.webp --data="/assets/img/2024-05-14/nordvpn_response_2.webp" --title="NordVPN X response" --class="mx-auto" %}
+
+That patent is [https://patents.google.com/patent/US11632267B2/en](https://patents.google.com/patent/US11632267B2/en) which looks to be a method of offloading TCP overhead through a VPN connection. The idea being that if a connection is lossy (think mobile phone with a poor signal), the TCP retransmissions are only on one side of the connection rather than all the way back and forth.
+
+This makes sense and the patent would explain why we’re not seeing this from other VPN vendors. Though, I’m still confused about the amount of TCP SACKS seen from NordVPN on the server side as well as the discrepancy in MSS between Nord and Surfshark. That still may be worth a look on their end.
+
+In any case, I hope this blog demonstrates the relevance and value of analyzing all of the low-level aspects of connections. Thanks to NordVPN for the explanation!
