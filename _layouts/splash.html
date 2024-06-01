@@ -2,7 +2,7 @@
 <html lang="en" data-theme="FoxIO Blog">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
         <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/assets/img/apple_touch_icon.png">
         <link rel="stylesheet" href="/assets/css/styles.css">
@@ -29,7 +29,7 @@
     <body class="flex flex-col min-h-[100dvh] lg:h-[100vh] bg-white">
         {% include nav.html %}
 
-        <div class="flex-grow px-4 py-12 bg-white mx-auto mt-[7.5vh] text-black max-w-none lg:max-w-prose not-prose lg:px-0">
+        <div class="flex-grow px-4 py-12 w-full bg-white mx-auto mt-[7.5vh] text-black max-w-none lg:max-w-prose not-prose lg:px-0 break-words">
             {{ content }}
         </div>
 

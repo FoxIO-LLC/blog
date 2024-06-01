@@ -1652,6 +1652,10 @@ html {
   max-width: none;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
 .flex-grow {
   flex-grow: 1;
 }
@@ -1712,6 +1716,10 @@ html {
 
 .self-end {
   align-self: flex-end;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-full {
