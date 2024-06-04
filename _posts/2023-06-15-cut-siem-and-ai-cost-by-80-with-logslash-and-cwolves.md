@@ -1,8 +1,8 @@
 ---
-permalink: cut-siem-%26-ai-cost-by-80-with-logslash-%26-cwolves
+permalink: cut-siem-and-ai-cost-by-80-with-logslash-and-cwolves
 layout: post
 
-title: Cut SIEM & AI cost by 80% with LogSlash & cwolves
+title: Cut SIEM and AI cost by 80% with LogSlash and cwolves
 author: John Althouse
 date: 2023-06-15
 headshot-loc: /assets/img/headshots/john.jpg
