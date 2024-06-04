@@ -91,65 +91,55 @@
 </nav>
 
 
-        <div class="flex-grow px-4 py-12 w-full bg-white mx-auto mt-[7.5vh] text-black max-w-none lg:max-w-prose not-prose lg:px-0 break-words">
+        <div class="flex-grow px-4 py-12 w-full bg-white mx-auto mt-[7.5vh] text-black max-w-none lg:w-2/3 not-prose lg:px-0 break-words">
             <h1 class="mb-4 font-extrabold" style="font-size:2.25em; margin-bottom:0.8888889em; line-height:1.1111111">
     FoxIO Blog
 </h1>
 
-<ul class="grid grid-cols-1 gap-12">
+<ul class="grid items-stretch gap-4 lg:grid-cols-3">
 
         <li>
-            <a href="/investigating-surfshark-and-nordvpn-with-ja4t" class="flex flex-col space-x-0 lg:space-x-8 lg:flex-row">
-                <div class="flex flex-col order-2 w-full mt-4 space-y-2 lg:w-3/4 lg:order-1 lg:mt-0">
-                    <h2 class="text-base font-semibold">Investigating Surfshark and NordVPN with JA4T</h2>
-                    <p class="text-sm text-black-light">Surfshark &amp; NordVPN Route Certain Ports Through Proxies? TL;DR This is an investigation of Surfshark and NordVPN using JA4TCP Fingerprinting. We found that both Surfshark and NordVPN route certain ports through TCP proxies such as port 5060, which is only used for unencrypted phone calls. No other VPN providers proxy...</p>
-                    <p class="text-xs font-semibold uppercase text-black-light">May 14, 2024 • John Althouse</p>
-                </div>
-                <img src="/assets/img/2024-05-14/telegram.webp" alt="Investigating Surfshark and NordVPN with JA4T" class="order-1 object-contain w-full rounded-lg lg:w-1/4 lg:order-2">
+            <a href="/investigating-surfshark-and-nordvpn-with-ja4t" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:shadow-lg">
+                <img src="/assets/img/2024-05-14/ja4tgif.gif" alt="Investigating Surfshark and NordVPN with JA4T" class="w-full rounded-lg">
+                <h2 class="!mt-4 text-lg font-semibold text-black">Investigating Surfshark and NordVPN with JA4T</h2>
+                <p class="text-sm text-black-light">Surfshark &amp; NordVPN Route Certain Ports Through Proxies? TL;DR This is an investigation of Surfshark and NordVPN using JA4TCP Fingerprinting....</p>
+                <p class="text-xs font-medium uppercase text-black-light">May 14, 2024 • John Althouse</p>
             </a>
         </li>
 
         <li>
-            <a href="/ja4t-tcp-fingerprinting" class="flex flex-col space-x-0 lg:space-x-8 lg:flex-row">
-                <div class="flex flex-col order-2 w-full mt-4 space-y-2 lg:w-3/4 lg:order-1 lg:mt-0">
-                    <h2 class="text-base font-semibold">JA4T: TCP Fingerprinting</h2>
-                    <p class="text-sm text-black-light">And How to Use It to Block Over 80% of Internet Scan Traffic TL;DR JA4T/S/Scan are the latest additions to the JA4+ family of network fingerprinting tools. These tools add the ability to fingerprint client and server operating systems, devices, particular applications, hosting characteristics, and even if a connection is...</p>
-                    <p class="text-xs font-semibold uppercase text-black-light">Apr 23, 2024 • John Althouse</p>
-                </div>
-                <img src="/assets/img/2024-04-23/tcp.gif" alt="JA4T: TCP Fingerprinting" class="order-1 object-contain w-full rounded-lg lg:w-1/4 lg:order-2">
+            <a href="/ja4t-tcp-fingerprinting" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:shadow-lg">
+                <img src="/assets/img/2024-04-23/tcp.gif" alt="JA4T: TCP Fingerprinting" class="w-full rounded-lg">
+                <h2 class="!mt-4 text-lg font-semibold text-black">JA4T: TCP Fingerprinting</h2>
+                <p class="text-sm text-black-light">And How to Use It to Block Over 80% of Internet Scan Traffic TL;DR JA4T/S/Scan are the latest additions to...</p>
+                <p class="text-xs font-medium uppercase text-black-light">Apr 23, 2024 • John Althouse</p>
             </a>
         </li>
 
         <li>
-            <a href="/ja4%2B-network-fingerprinting" class="flex flex-col space-x-0 lg:space-x-8 lg:flex-row">
-                <div class="flex flex-col order-2 w-full mt-4 space-y-2 lg:w-3/4 lg:order-1 lg:mt-0">
-                    <h2 class="text-base font-semibold">JA4+ Network Fingerprinting</h2>
-                    <p class="text-sm text-black-light">TL;DR In this blog I go over the new JA4+ network fingerprinting methods and examples of what they can detect. JA4+ provides a suite of modular network fingerprints that are easy to use and easy to share, replacing the JA3 TLS fingerprinting standard from 2017. These methods are both human...</p>
-                    <p class="text-xs font-semibold uppercase text-black-light">Sep 26, 2023 • John Althouse</p>
-                </div>
-                <img src="/assets/img/2023-09-26/do_you_struggle_with_detection.webp" alt="JA4+ Network Fingerprinting" class="order-1 object-contain w-full rounded-lg lg:w-1/4 lg:order-2">
+            <a href="/ja4%2B-network-fingerprinting" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:shadow-lg">
+                <img src="/assets/img/2023-09-26/do_you_struggle_with_detection.webp" alt="JA4+ Network Fingerprinting" class="w-full rounded-lg">
+                <h2 class="!mt-4 text-lg font-semibold text-black">JA4+ Network Fingerprinting</h2>
+                <p class="text-sm text-black-light">TL;DR In this blog I go over the new JA4+ network fingerprinting methods and examples of what they can detect....</p>
+                <p class="text-xs font-medium uppercase text-black-light">Sep 26, 2023 • John Althouse</p>
             </a>
         </li>
 
         <li>
-            <a href="/cut-siem-%26-ai-cost-by-80-with-logslash-%26-cwolves" class="flex flex-col space-x-0 lg:space-x-8 lg:flex-row">
-                <div class="flex flex-col order-2 w-full mt-4 space-y-2 lg:w-3/4 lg:order-1 lg:mt-0">
-                    <h2 class="text-base font-semibold">Cut SIEM & AI cost by 80% with LogSlash & cwolves</h2>
-                    <p class="text-sm text-black-light">In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies that it is being implemented into. I’ll also explain how LogSlash can significantly reduce the cost to send data to SIEMs as well as train AI on transactional data. TL;DR...</p>
-                    <p class="text-xs font-semibold uppercase text-black-light">Jun 15, 2023 • John Althouse</p>
-                </div>
-                <img src="/assets/img/2023-06-15/cwolves_dashboard.webp" alt="Cut SIEM & AI cost by 80% with LogSlash & cwolves" class="order-1 object-contain w-full rounded-lg lg:w-1/4 lg:order-2">
+            <a href="/cut-siem-and-ai-cost-by-80-with-logslash-and-cwolves" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:shadow-lg">
+                <img src="/assets/img/2023-06-15/cwolves_dashboard.webp" alt="Cut SIEM and AI cost by 80% with LogSlash and cwolves" class="w-full rounded-lg">
+                <h2 class="!mt-4 text-lg font-semibold text-black">Cut SIEM and AI cost by 80% with LogSlash and cwolves</h2>
+                <p class="text-sm text-black-light">In this blog, I go over how the LogSlash method has evolved over the last few months and new technologies...</p>
+                <p class="text-xs font-medium uppercase text-black-light">Jun 15, 2023 • John Althouse</p>
             </a>
         </li>
 
         <li>
-            <a href="/introducing-logslash-and-the-end-of-traditional-logging" class="flex flex-col space-x-0 lg:space-x-8 lg:flex-row">
-                <div class="flex flex-col order-2 w-full mt-4 space-y-2 lg:w-3/4 lg:order-1 lg:mt-0">
-                    <h2 class="text-base font-semibold">Introducing LogSlash and the End of Traditional Logging</h2>
-                    <p class="text-sm text-black-light">LogSlash is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and cutting logging costs in half. It does this by performing a time-window-based, intelligent reduction of logs in transit. LogSlash was created by John Althouse, who led the creation of standard...</p>
-                    <p class="text-xs font-semibold uppercase text-black-light">Jan 21, 2023 • John Althouse</p>
-                </div>
-                <img src="/assets/img/2023-01-21/logslash.webp" alt="Introducing LogSlash and the End of Traditional Logging" class="order-1 object-contain w-full rounded-lg lg:w-1/4 lg:order-2">
+            <a href="/introducing-logslash-and-the-end-of-traditional-logging" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:shadow-lg">
+                <img src="/assets/img/2023-01-21/logslash.webp" alt="Introducing LogSlash and the End of Traditional Logging" class="w-full rounded-lg">
+                <h2 class="!mt-4 text-lg font-semibold text-black">Introducing LogSlash and the End of Traditional Logging</h2>
+                <p class="text-sm text-black-light">LogSlash is a new standard method that doubles the efficiency and value of existing log platforms by doubling capacity and...</p>
+                <p class="text-xs font-medium uppercase text-black-light">Jan 21, 2023 • John Althouse</p>
             </a>
         </li>
 
