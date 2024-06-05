@@ -27,11 +27,11 @@
 
         <title>{{ page.title }} • FoxIO Blog</title>
     </head>
-    <body class="flex flex-col min-h-[100dvh] lg:h-[100vh] bg-white">
+    <body class="flex flex-col min-h-[100dvh] lg:min-h-[100vh] bg-black">
         <script src="/assets/js/lightbox-plus-jquery.js"></script>
         {% include nav.html %}
 
-        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose bg-white prose-purple lg:px-0 w-full break-words">
+        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose lg:max-w-[66.666667%] lg:px-0 w-full break-words">
             <h1>
                 {{ page.title }}
             </h1>
@@ -39,8 +39,8 @@
             <div class="flex not-prose">
                 <img src="{{ page.headshot-loc }}" alt="{{ page.author }}" class="h-10 my-auto mr-2 rounded-full aspect-square" />
                 <div class="my-auto">
-                    <p class="text-sm font-semibold">{{ page.author }}</p>
-                    <p class="text-xs text-black-light">{{ page.date | date: "%B %-d, %Y" }}</p>
+                    <p class="text-sm font-semibold text-white">{{ page.author }}</p>
+                    <p class="text-xs text-gray-light">{{ page.date | date: "%B %-d, %Y" }}</p>
                 </div>
             </div>
 

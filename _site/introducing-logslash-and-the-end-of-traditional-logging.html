@@ -48,15 +48,15 @@
 
         <title>Introducing LogSlash and the End of Traditional Logging • FoxIO Blog</title>
     </head>
-    <body class="flex flex-col min-h-[100dvh] lg:h-[100vh] bg-white">
+    <body class="flex flex-col min-h-[100dvh] lg:min-h-[100vh] bg-black">
         <script src="/assets/js/lightbox-plus-jquery.js"></script>
-        <nav id="navbar" class="fixed top-0 left-0 z-10 w-full h-[7.5vh] bg-opacity-75 backdrop-blur-sm shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-white">
+        <nav id="navbar" class="fixed top-0 left-0 z-10 w-full h-[7.5vh] bg-opacity-75 backdrop-blur-sm shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-black">
   <div class="items-center justify-between hidden w-2/3 h-full px-0 mx-auto text-sm lg:flex">
     <a href="/" class="flex items-center">
       <img src="/assets/img/logos/foxio_wordmark.png" alt="FoxIO logo" class="h-5 my-auto" />
     </a>
     <div class="items-center hidden space-x-4 font-semibold lg:flex">
-      <a href="https://foxio.io/" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
+      <a href="https://foxio.io/" target="_blank" class="text-white text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
     </div>
   </div>
 
@@ -64,11 +64,11 @@
     <a href="/" class="flex items-center">
       <img src="/assets/img/logos/foxio_wordmark.png" alt="FoxIO logo" class="h-5 my-auto" />
     </a>
-    <div id="mobile-drawer-toggle" tabindex="0" class="text-xl text-purple ri-menu-fill"></div>
+    <div id="mobile-drawer-toggle" tabindex="0" class="text-xl text-white ri-menu-fill"></div>
     <ul
       id="mobile-drawer"
       tabindex="0"
-      class="z-20 dropdown-content flex flex-col p-4 space-y-4 font-semibold dropdown-end fixed left-0 top-[7.5vh] w-screen shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-white text-black"
+      class="z-20 dropdown-content flex flex-col p-4 space-y-4 font-semibold dropdown-end fixed left-0 top-[7.5vh] w-screen shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-black text-white"
     >
       <li>
         <a href="https://foxio.io/" target="_blank" class="text-xl"> FoxIO </a>
@@ -96,7 +96,7 @@
 </nav>
 
 
-        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose bg-white prose-purple lg:px-0 w-full break-words">
+        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose lg:max-w-[66.666667%] lg:px-0 w-full break-words">
             <h1>
                 Introducing LogSlash and the End of Traditional Logging
             </h1>
@@ -104,8 +104,8 @@
             <div class="flex not-prose">
                 <img src="/assets/img/headshots/john.jpg" alt="John Althouse" class="h-10 my-auto mr-2 rounded-full aspect-square" />
                 <div class="my-auto">
-                    <p class="text-sm font-semibold">John Althouse</p>
-                    <p class="text-xs text-black-light">January 21, 2023</p>
+                    <p class="text-sm font-semibold text-white">John Althouse</p>
+                    <p class="text-xs text-gray-light">January 21, 2023</p>
                 </div>
             </div>
 
@@ -147,7 +147,7 @@ Fields\_sum = bytes
 
 <p>The output fields now include “timestamp-end”, “bytes-total” and “logslash,” which shows how many times the particular event occurred. We’re ignoring all but the first srcport as that field holds little analytical value. If we wanted to retain each srcport, we could configure LogSlash to concatenate them with a comma delimiter instead.</p>
 
-<p><a href="../assets/img/2023-01-21/logslash.png" data-lightbox="/assets/img/2023-01-21/logslash.png" data-title="LogSlash output"><img src="../assets/img/2023-01-21/logslash.png" alt="" class="mx-auto" style="" /></a></p>
+<p><a href="../assets/img/2023-01-21/logslash.webp" data-lightbox="/assets/img/2023-01-21/logslash.webp" data-title="LogSlash output"><img src="../assets/img/2023-01-21/logslash.webp" alt="" class="mx-auto" style="" /></a></p>
 
 <p>In this simplified example, we can see that Bob connected to Gmail 8 times over TLS/443 within a 53-second window with a total byte count of 3365kb and also attempted to connect to a malicious site once. LogSlash reduced the logs flowing into the log platform by 78% without any loss to the understanding of what happened. This can significantly reduce the cost to index, store, and process/search against log data, as well as reduce log platform licensing costs.</p>
 
@@ -206,7 +206,7 @@ Fields\_sum = bytes
 
         </div>
 
-        <footer class="w-full py-4 bg-white">
+        <footer class="w-full py-4 bg-black">
     <div class="flex flex-col justify-center px-4 mx-auto space-y-8 lg:px-0 lg:w-2/3">
       <hr class="w-full border-t border-opacity-10 border-gray" />
       <div class="flex flex-col w-full space-y-8 text-sm lg:space-y-0 lg:justify-between lg:flex-row">
@@ -216,13 +216,13 @@ Fields\_sum = bytes
           </a>
           <p class="font-medium text-gray">The FoxIO blog</p>
           <div class="flex items-center space-x-4">
-            <a href="https://www.linkedin.com/company/foxio-llc" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100">
+            <a href="https://www.linkedin.com/company/foxio-llc" target="_blank" class="text-white text-opacity-50 lg:hover:text-opacity-100">
               <i class="text-xl ri-linkedin-fill"></i>
             </a>
           </div>
         </div>
         <div class="flex space-x-4">
-          <a href="https://foxio.io/" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
+          <a href="https://foxio.io/" target="_blank" class="text-white text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
         </div>
       </div>
       <div class="self-end text-xs text-gray">

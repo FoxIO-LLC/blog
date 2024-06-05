@@ -48,15 +48,15 @@
 
         <title>Investigating Surfshark and NordVPN with JA4T • FoxIO Blog</title>
     </head>
-    <body class="flex flex-col min-h-[100dvh] lg:h-[100vh] bg-white">
+    <body class="flex flex-col min-h-[100dvh] lg:min-h-[100vh] bg-black">
         <script src="/assets/js/lightbox-plus-jquery.js"></script>
-        <nav id="navbar" class="fixed top-0 left-0 z-10 w-full h-[7.5vh] bg-opacity-75 backdrop-blur-sm shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-white">
+        <nav id="navbar" class="fixed top-0 left-0 z-10 w-full h-[7.5vh] bg-opacity-75 backdrop-blur-sm shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-black">
   <div class="items-center justify-between hidden w-2/3 h-full px-0 mx-auto text-sm lg:flex">
     <a href="/" class="flex items-center">
       <img src="/assets/img/logos/foxio_wordmark.png" alt="FoxIO logo" class="h-5 my-auto" />
     </a>
     <div class="items-center hidden space-x-4 font-semibold lg:flex">
-      <a href="https://foxio.io/" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
+      <a href="https://foxio.io/" target="_blank" class="text-white text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
     </div>
   </div>
 
@@ -64,11 +64,11 @@
     <a href="/" class="flex items-center">
       <img src="/assets/img/logos/foxio_wordmark.png" alt="FoxIO logo" class="h-5 my-auto" />
     </a>
-    <div id="mobile-drawer-toggle" tabindex="0" class="text-xl text-purple ri-menu-fill"></div>
+    <div id="mobile-drawer-toggle" tabindex="0" class="text-xl text-white ri-menu-fill"></div>
     <ul
       id="mobile-drawer"
       tabindex="0"
-      class="z-20 dropdown-content flex flex-col p-4 space-y-4 font-semibold dropdown-end fixed left-0 top-[7.5vh] w-screen shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-white text-black"
+      class="z-20 dropdown-content flex flex-col p-4 space-y-4 font-semibold dropdown-end fixed left-0 top-[7.5vh] w-screen shadow-gray/10 shadow-[inset_0px_-1px_1px] bg-black text-white"
     >
       <li>
         <a href="https://foxio.io/" target="_blank" class="text-xl"> FoxIO </a>
@@ -96,7 +96,7 @@
 </nav>
 
 
-        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose bg-white prose-purple lg:px-0 w-full break-words">
+        <div class="flex-grow px-4 py-12 mx-auto mt-[7.5vh] prose lg:max-w-[66.666667%] lg:px-0 w-full break-words">
             <h1>
                 Investigating Surfshark and NordVPN with JA4T
             </h1>
@@ -104,8 +104,8 @@
             <div class="flex not-prose">
                 <img src="/assets/img/headshots/john.jpg" alt="John Althouse" class="h-10 my-auto mr-2 rounded-full aspect-square" />
                 <div class="my-auto">
-                    <p class="text-sm font-semibold">John Althouse</p>
-                    <p class="text-xs text-black-light">May 14, 2024</p>
+                    <p class="text-sm font-semibold text-white">John Althouse</p>
+                    <p class="text-xs text-gray-light">May 14, 2024</p>
                 </div>
             </div>
 
@@ -217,7 +217,7 @@
 
 <p>I hate to end this blog with more questions than answers, so I will post an update if I find out more. Until then, this was an interesting hunt that, at the very least, found performance misconfigurations at NordVPN, all triggered by an unexpected JA4T fingerprint in my network logs.</p>
 
-<h3 id="update-5152024">UPDATE 5/15/2024</h3>
+<h2 id="update-5152024">UPDATE 5/15/2024</h2>
 
 <p>NordVPN has responded.</p>
 
@@ -231,7 +231,7 @@
 
         </div>
 
-        <footer class="w-full py-4 bg-white">
+        <footer class="w-full py-4 bg-black">
     <div class="flex flex-col justify-center px-4 mx-auto space-y-8 lg:px-0 lg:w-2/3">
       <hr class="w-full border-t border-opacity-10 border-gray" />
       <div class="flex flex-col w-full space-y-8 text-sm lg:space-y-0 lg:justify-between lg:flex-row">
@@ -241,13 +241,13 @@
           </a>
           <p class="font-medium text-gray">The FoxIO blog</p>
           <div class="flex items-center space-x-4">
-            <a href="https://www.linkedin.com/company/foxio-llc" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100">
+            <a href="https://www.linkedin.com/company/foxio-llc" target="_blank" class="text-white text-opacity-50 lg:hover:text-opacity-100">
               <i class="text-xl ri-linkedin-fill"></i>
             </a>
           </div>
         </div>
         <div class="flex space-x-4">
-          <a href="https://foxio.io/" target="_blank" class="text-black text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
+          <a href="https://foxio.io/" target="_blank" class="text-white text-opacity-50 lg:hover:text-opacity-100"> FoxIO </a>
         </div>
       </div>
       <div class="self-end text-xs text-gray">

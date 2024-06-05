@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2024-06-04T14:55:45-05:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">FoxIO Blog</title><subtitle>FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems</subtitle><entry><title type="html">Investigating Surfshark and NordVPN with JA4T</title><link href="http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t" rel="alternate" type="text/html" title="Investigating Surfshark and NordVPN with JA4T" /><published>2024-05-14T00:00:00-05:00</published><updated>2024-05-14T00:00:00-05:00</updated><id>http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t</id><content type="html" xml:base="http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t"><![CDATA[<p>Surfshark &amp; NordVPN Route Certain Ports Through Proxies?</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2024-06-04T19:41:03-05:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">FoxIO Blog</title><subtitle>FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems</subtitle><entry><title type="html">Investigating Surfshark and NordVPN with JA4T</title><link href="http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t" rel="alternate" type="text/html" title="Investigating Surfshark and NordVPN with JA4T" /><published>2024-05-14T00:00:00-05:00</published><updated>2024-05-14T00:00:00-05:00</updated><id>http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t</id><content type="html" xml:base="http://localhost:8000/investigating-surfshark-and-nordvpn-with-ja4t"><![CDATA[<p>Surfshark &amp; NordVPN Route Certain Ports Through Proxies?</p>
 
 <h2 id="tldr">TL;DR</h2>
 
@@ -106,7 +106,7 @@
 
 <p>I hate to end this blog with more questions than answers, so I will post an update if I find out more. Until then, this was an interesting hunt that, at the very least, found performance misconfigurations at NordVPN, all triggered by an unexpected JA4T fingerprint in my network logs.</p>
 
-<h3 id="update-5152024">UPDATE 5/15/2024</h3>
+<h2 id="update-5152024">UPDATE 5/15/2024</h2>
 
 <p>NordVPN has responded.</p>
 
@@ -652,7 +652,7 @@ Fields\_sum = bytes
 
 <p>The output fields now include “timestamp-end”, “bytes-total” and “logslash,” which shows how many times the particular event occurred. We’re ignoring all but the first srcport as that field holds little analytical value. If we wanted to retain each srcport, we could configure LogSlash to concatenate them with a comma delimiter instead.</p>
 
-<p><a href="../assets/img/2023-01-21/logslash.png" data-lightbox="/assets/img/2023-01-21/logslash.png" data-title="LogSlash output"><img src="../assets/img/2023-01-21/logslash.png" alt="" class="mx-auto" style="" /></a></p>
+<p><a href="../assets/img/2023-01-21/logslash.webp" data-lightbox="/assets/img/2023-01-21/logslash.webp" data-title="LogSlash output"><img src="../assets/img/2023-01-21/logslash.webp" alt="" class="mx-auto" style="" /></a></p>
 
 <p>In this simplified example, we can see that Bob connected to Gmail 8 times over TLS/443 within a 53-second window with a total byte count of 3365kb and also attempted to connect to a malicious site once. LogSlash reduced the logs flowing into the log platform by 78% without any loss to the understanding of what happened. This can significantly reduce the cost to index, store, and process/search against log data, as well as reduce log platform licensing costs.</p>
 

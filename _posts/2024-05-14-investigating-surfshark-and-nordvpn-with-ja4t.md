@@ -117,7 +117,7 @@ Other potential reasons for the proxies include being a [transparent caching web
 
 I hate to end this blog with more questions than answers, so I will post an update if I find out more. Until then, this was an interesting hunt that, at the very least, found performance misconfigurations at NordVPN, all triggered by an unexpected JA4T fingerprint in my network logs.
 
-### UPDATE 5/15/2024
+## UPDATE 5/15/2024
 
 NordVPN has responded.
 

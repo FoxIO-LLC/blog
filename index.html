@@ -5,18 +5,18 @@ title: FoxIO Blog
 image: /assets/img/logos/foxio_logo_wordmark.png
 ---
 
-<h1 class="mb-4 font-extrabold" style="font-size:2.25em; margin-bottom:0.8888889em; line-height:1.1111111">
+<h1 class="mb-4 font-bold text-white" style="font-size:2.25em; margin-bottom:0.8888889em; line-height:1.1111111">
     {{ page.title }}
 </h1>
 
 <ul class="grid items-stretch gap-4 lg:grid-cols-3">
     {% for post in site.posts %}
         <li>
-            <a href="{{ post.url }}" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:shadow-lg">
+            <a href="{{ post.url }}" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:bg-purple lg:hover:bg-opacity-10">
                 <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full rounded-lg">
-                <h2 class="!mt-4 text-lg font-semibold text-black">{{ post.title }}</h2>
-                <p class="text-sm text-black-light">{{ post.content | strip_html | truncatewords: 20 }}</p>
-                <p class="text-xs font-medium uppercase text-black-light">{{ post.date | date: "%b %d, %Y" }} • {{ post.author }}</p>
+                <h2 class="!mt-4 text-lg font-semibold text-white">{{ post.title }}</h2>
+                <p class="text-sm text-gray-light">{{ post.content | strip_html | truncatewords: 20 }}</p>
+                <p class="text-xs font-medium uppercase text-gray">{{ post.date | date: "%b %d, %Y" }} • {{ post.author }}</p>
             </a>
         </li>
     {% endfor %}

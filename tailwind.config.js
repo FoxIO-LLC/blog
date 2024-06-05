@@ -17,7 +17,7 @@ module.exports = {
               light: "#F5F5F7",
             },
             black: {
-              DEFAULT: "#242424",
+              DEFAULT: "#000000",
               light: "#8C8C8C",
             },
         },
@@ -28,13 +28,35 @@ module.exports = {
         typography: {
           DEFAULT: {
             css: {
-              color: "#242424",
+              color: "#FFFFFF",
+              h1: {
+                color: "#FFFFFF",
+              },
+              h2: {
+                color: "#FFFFFF",
+              },
               a: {
                 color: "#6E3AF5",
                 "&:hover": {
                   color: "#7D4EF6",
                 },
                 textDecoration: false,
+              },
+              strong: {
+                color: "#FFFFFF",
+              },
+              em: {
+                color: "#FFFFFF",
+              },
+              figcaption: {
+                color: "#F5F5F7",
+              },
+              pre: {
+                backgroundColor: "#FFFFFF",
+                color: "#000000",
+              },
+              code: {
+                color: "#30B700",
               },
             },
           },

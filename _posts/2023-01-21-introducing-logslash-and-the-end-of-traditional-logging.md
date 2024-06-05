@@ -48,7 +48,7 @@ Fields\_sum = bytes
 
 The output fields now include “timestamp-end”, “bytes-total” and “logslash,” which shows how many times the particular event occurred. We’re ignoring all but the first srcport as that field holds little analytical value. If we wanted to retain each srcport, we could configure LogSlash to concatenate them with a comma delimiter instead.
 
-{% lightbox /assets/img/2023-01-21/logslash.png --data="/assets/img/2023-01-21/logslash.png" --title="LogSlash output" --class="mx-auto" %}
+{% lightbox /assets/img/2023-01-21/logslash.webp --data="/assets/img/2023-01-21/logslash.webp" --title="LogSlash output" --class="mx-auto" %}
 
 In this simplified example, we can see that Bob connected to Gmail 8 times over TLS/443 within a 53-second window with a total byte count of 3365kb and also attempted to connect to a malicious site once. LogSlash reduced the logs flowing into the log platform by 78% without any loss to the understanding of what happened. This can significantly reduce the cost to index, store, and process/search against log data, as well as reduce log platform licensing costs.
 
