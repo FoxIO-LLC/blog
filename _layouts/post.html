@@ -35,12 +35,21 @@
             <h1>
                 {{ page.title }}
             </h1>
-
             <div class="flex not-prose">
-                <img src="{{ page.headshot-loc }}" alt="{{ page.author }}" class="h-10 my-auto mr-2 rounded-full aspect-square" />
+                <img src="{{ page.headshot-loc }}" alt="{{ page.author }}" class="h-10 mr-2 rounded-full aspect-square" />
                 <div class="my-auto">
                     <p class="text-sm font-semibold text-white">{{ page.author }}</p>
                     <p class="text-xs text-gray-light">{{ page.date | date: "%B %-d, %Y" }}</p>
+                    <div class="flex mt-1 space-x-2">
+                        <a href="{{ page.linkedin-loc }}" target="_blank" class="text-sm text-gray-light hover:text-white">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        {% if page.x-loc %}
+                            <a href="{{ page.x-loc }}" target="_blank" class="text-sm text-gray-light hover:text-white">
+                                <i class="ri-twitter-x-fill"></i>
+                            </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 

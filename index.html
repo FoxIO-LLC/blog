@@ -12,7 +12,7 @@ image: /assets/img/logos/foxio_logo_wordmark.png
 <ul class="grid items-stretch gap-4 lg:grid-cols-3">
     {% for post in site.posts %}
         <li>
-            <a href="{{ post.url }}" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 lg:hover:bg-purple lg:hover:bg-opacity-10">
+            <a href="{{ post.url }}" class="flex flex-col w-full h-full p-4 space-y-2 rounded-lg lg:p-8 hover:bg-white hover:bg-opacity-10">
                 <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full rounded-lg">
                 <h2 class="!mt-4 text-lg font-semibold text-white">{{ post.title }}</h2>
                 <p class="text-sm text-gray-light">{{ post.content | strip_html | truncatewords: 20 }}</p>

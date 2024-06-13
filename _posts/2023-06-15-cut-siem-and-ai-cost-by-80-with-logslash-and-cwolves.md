@@ -6,6 +6,8 @@ title: Cut SIEM and AI cost by 80% with LogSlash and cwolves
 author: John Althouse
 date: 2023-06-15
 headshot-loc: /assets/img/headshots/john.jpg
+linkedin-loc: https://www.linkedin.com/in/johnalthouse/
+x-loc: https://x.com/4A4133
 image: /assets/img/2023-06-15/cwolves_dashboard.webp
 ---
 

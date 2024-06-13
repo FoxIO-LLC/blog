@@ -6,6 +6,8 @@ title: "JA4T: TCP Fingerprinting"
 author: John Althouse
 date: 2024-04-23
 headshot-loc: /assets/img/headshots/john.jpg
+linkedin-loc: https://www.linkedin.com/in/johnalthouse/
+x-loc: https://x.com/4A4133
 image: /assets/img/2024-04-23/tcp.gif
 ---
 

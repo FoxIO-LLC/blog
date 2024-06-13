@@ -6,6 +6,8 @@ title: "Investigating Surfshark and NordVPN with JA4T"
 author: John Althouse
 date: 2024-05-14
 headshot-loc: /assets/img/headshots/john.jpg
+linkedin-loc: https://www.linkedin.com/in/johnalthouse/
+x-loc: https://x.com/4A4133
 image: /assets/img/2024-05-14/ja4tgif.gif
 ---
 

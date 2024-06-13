@@ -6,6 +6,8 @@ title: JA4+ Network Fingerprinting
 author: John Althouse
 date: 2023-09-26
 headshot-loc: /assets/img/headshots/john.jpg
+linkedin-loc: https://www.linkedin.com/in/johnalthouse/
+x-loc: https://x.com/4A4133
 image: /assets/img/2023-09-26/do_you_struggle_with_detection.webp
 ---
 

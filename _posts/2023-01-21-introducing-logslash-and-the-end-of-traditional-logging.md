@@ -6,6 +6,8 @@ title: Introducing LogSlash and the End of Traditional Logging
 author: John Althouse
 date: 2023-01-21
 headshot-loc: /assets/img/headshots/john.jpg
+linkedin-loc: https://www.linkedin.com/in/johnalthouse/
+x-loc: https://x.com/4A4133
 image: /assets/img/2023-01-21/logslash.webp
 ---
 
