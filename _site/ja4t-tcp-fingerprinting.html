@@ -128,8 +128,6 @@
 
 <p>These tools add the ability to fingerprint client and server operating systems, devices, particular applications, hosting characteristics, and even if a connection is going through a tunnel, VPN, or proxy. If built into a WAF, firewall, or load balancer, it becomes possible to block malicious traffic.</p>
 
-<p>Included is an explanation for how to block 80% of all internet scan traffic using JA4T fingerprints of known scanners, based on GreyNoise data, and how to block them with F5 Big-IPs. See “Blocking Internet Scanners” below for details.</p>
-
 <p>JA4+: <a href="https://github.com/FoxIO-LLC/ja4">https://github.com/FoxIO-LLC/ja4</a><br />
 JA4TScan: <a href="https://github.com/FoxIO-LLC/ja4tscan">https://github.com/FoxIO-LLC/ja4tscan</a><br />
 Original blog on JA4+: <a href="https://blog.foxio.io/ja4%2B-network-fingerprinting">https://blog.foxio.io/ja4%2B-network-fingerprinting</a></p>
@@ -224,19 +222,9 @@ Original blog on JA4+: <a href="https://blog.foxio.io/ja4%2B-network-fingerprint
 
 <h2 id="blocking-internet-scanners-with-ja4t-and-greynoise">Blocking Internet Scanners with JA4T and GreyNoise</h2>
 
-<p><a href="https://www.greynoise.io/">GreyNoise</a> is a service that turns Internet noise into intelligence. As such, they can correlate data, such as fingerprints, across internet scanners. Correlating JA4T across GreyNoise allows for the grouping of threat actors and tools.</p>
+<p><a href="https://www.greynoise.io/">GreyNoise</a> is a service that turns Internet noise into intelligence. As such, they can correlate data, such as fingerprints, across internet scanners. Correlating JA4+ across GreyNoise allows for the grouping of threat actors and tools.</p>
 
-<p>A list of top JA4T fingerprints seen scanning the internet over the last 2 months according to GreyNoise:</p>
-
-<p><a href="../assets/img/2024-04-23/internetscantraffic.webp" data-lightbox="/assets/img/2024-04-23/internetscantraffic.webp" data-title="Internet Scan Traffic by JA4TCP Fingerprint"><img src="../assets/img/2024-04-23/internetscantraffic.webp" alt="" class="mx-auto" style="" /></a></p>
-
-<p><a href="../assets/img/2024-04-23/greynoise.webp" data-lightbox="/assets/img/2024-04-23/greynoise.webp" data-title="Top JA4T fingerprints according to GreyNoise"><img src="../assets/img/2024-04-23/greynoise.webp" alt="" class="mx-auto" style="" /></a></p>
-
-<p>The top JA4T fingerprints and associated destination ports, <strong>which make up 80% of all internet scan traffic</strong>, appear to be unique and can be blocked using JA4T on your respective WAF, firewall, load balancer, proxy or server. This allows for the heuristic blocking of malicious traffic based on fingerprints rather than constantly-changing IP lists. <a href="https://www.f5.com/">F5</a> has an example iRule for blocking these JA4T fingerprints on F5 BIG-IPs <a href="https://github.com/f5devcentral/f5-ja4">here</a>.</p>
-
-<p>When blocking based on JA4T, the block happens at the SYN packet, preventing a SYN-ACK response. This means that the traffic is blocked before the scanner can even tell if the port is up. As always, careful consideration should be used before implementing a block rule as these could end up also blocking your Attack Surface Management (ASM) tool.</p>
-
-<p>Let’s dive into JA4T, <em>29200_2–4–8–1–3_1424_7</em>. An options list of <em>2–4–8–1–3</em> indicates a Unix-based operating system and an MSS of 1424 indicates that these connections have 36 bytes of additional network overhead. This is possibly an unencrypted tunnel or proxy, as 36 bytes is not enough for additional encryption as would be seen in a VPN. GreyNoise is observing hundreds of source IPs with this JA4T fingerprint, however, all are within Tencent IP ranges and listening on port 22, with some listening on port 31401, which is Pi Node Crypto Miner. Given the MSS discrepancy, it’s possible that these source IPs are not actually the true source of the traffic but instead that traffic is being bounced through them.</p>
+<p>For example, one of the top JA4T fingerprints observed on GreyNoise is <em>29200_2–4–8–1–3_1424_7</em>. An options list of <em>2–4–8–1–3</em> indicates a Unix-based operating system and an MSS of 1424 indicates that these connections have 36 bytes of additional network overhead. This is possibly an unencrypted tunnel or proxy, as 36 bytes is not enough for additional encryption as would be seen in a VPN. GreyNoise is observing hundreds of source IPs with this JA4T fingerprint, however, all are within Tencent IP ranges and listening on port 22, with some listening on port 31401, which is Pi Node Crypto Miner. Given the MSS discrepancy, it’s possible that these source IPs are not actually the true source of the traffic but instead that traffic is being bounced through them.</p>
 
 <p>Pivoting on the JA4T with GreyNoise data, we can see this actor’s scanning priorities are primarily focused on SSH and alternative SSH ports:</p>
 
@@ -258,7 +246,7 @@ Original blog on JA4+: <a href="https://blog.foxio.io/ja4%2B-network-fingerprint
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>JA4T, JA4TS, and JA4TScan are the latest additions to the JA4+ suite of network fingerprints. These tools add the ability to fingerprint client and server operating systems, devices, particular applications, hosting/provider characteristics, detect if a connection is going through a tunnel, VPN or proxy, and help troubleshoot network issues. If built into a WAF, firewall, or load balancer, it becomes possible to block 80% of internet scan traffic based on fingerprints rather than a list of constantly-changing IP addresses.</p>
+<p>JA4T, JA4TS, and JA4TScan are the latest additions to the JA4+ suite of network fingerprints. These tools add the ability to fingerprint client and server operating systems, devices, particular applications, hosting/provider characteristics, detect if a connection is going through a tunnel, VPN or proxy, and help troubleshoot network issues. If built into a WAF, firewall, or load balancer, it becomes possible to block unwanted traffic based on fingerprints rather than a list of constantly-changing IP addresses.</p>
 
 <p>You can find JA4+ on our GitHub (<a href="https://github.com/FoxIO-LLC/ja4">https://github.com/FoxIO-LLC/ja4</a>) and in many cyber security products.</p>
 
