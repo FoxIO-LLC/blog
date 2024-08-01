@@ -50,7 +50,7 @@ TLS is used to encrypt the vast majority of traffic on the internet, from web br
 
 JA4 looks at this TLS Client Hello packet and builds out an easily understandable and shareable fingerprint. The format is as follows:
 
-{% lightbox /assets/img/2023-09-26/examples.webp --data="/assets/img/2023-09-26/examples.webp" --title="Examples" --class="mx-auto" %}
+{% lightbox /assets/img/2023-09-26/ja4.webp --data="/assets/img/2023-09-26/ja4.webp" --title="JA4" --class="mx-auto" %}
 
 JA4 fingerprints the client, no matter if the traffic is over TCP or [QUIC](https://en.wikipedia.org/wiki/QUIC). QUIC is the protocol used by the new HTTP/3 standard that encapsulates TLS 1.3 into UDP packets. As QUIC was developed by Google, if an organization heavily utilizes Google products, QUIC could make up half of their network traffic, so this is important to capture.
 
