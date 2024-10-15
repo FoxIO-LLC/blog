@@ -15,7 +15,7 @@ And the solution to Employee AI / Voice Phishing
 
 ## TL;DR
 
-EVA is a chat app that prevents voice phishing and AI-assisted phishing attacks within organizations by giving employees the ability to validate each other via MFA, in seconds. It also assists in secure incident response and securing business processes. EVA takes just a few minutes to set up; you can try it for free here: [https://eva.foxio.io/](https://eva.foxio.io/)
+EVA is a chat app that prevents voice phishing and AI-assisted phishing attacks within organizations by giving employees the ability to validate each other via MFA, in seconds. It also assists in secure incident response and securing business processes. This will stop your next red team engagement or ransomware attack in its tracks. EVA takes just a few minutes to set up; you can try it for free here: [https://eva.foxio.io/](https://eva.foxio.io/)
 
 EVA was created by [FoxIO](https://foxio.io/), a cyber innovations company responsible for standards such as [JA4+ Network Fingerprinting](https://blog.foxio.io/ja4%2B-network-fingerprinting), which are used by global governments and most of the Fortune 500.
 
@@ -32,7 +32,7 @@ For some recent examples, see:
 
 [MGM Loses $100 Million After Attacker Calls Helpdesk Pretending to be Employee](https://www.vox.com/technology/2023/9/15/23875113/mgm-hack-casino-vishing-cybersecurity-ransomware)
 
-And most of us have experienced receiving texts from the “CEO” asking us to urgently buy gift cards.
+And most of us have experienced receiving texts from the “CEO” asking us to urgently buy gift cards. The solution to phishing is not user education, it’s in giving users the tools to easily verify everything.
 
 ## The Employee Verification App (EVA)
 
@@ -92,7 +92,7 @@ EVA is patent pending.
 
 ## Conclusion
 
-The Employee Verification App (EVA) empowers every employee with the ability to validate that any other employee is who they say they are, in seconds. EVA solves employee AI and voice phishing and assists in incident response and company policy enforcement.
+The Employee Verification App (EVA) empowers every employee with the ability to validate that any other employee is who they say they are, in seconds. EVA solves employee AI and voice phishing and assists in incident response and company policy enforcement. The solution to phishing is not user education, it’s in giving users the tools they need to stop the threat.
 
 EVA is free to use for 90 days. After that, use promo code “EARLY” at checkout to lock in EVA at $0.25/user/month for life. This promotional price will never increase for organizations that sign up in 2024.
 
