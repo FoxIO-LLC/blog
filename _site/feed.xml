@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2024-10-15T10:28:21-05:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">FoxIO Blog</title><subtitle>FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems</subtitle><entry><title type="html">Introducing EVA — The Employee Verification App</title><link href="http://localhost:8000/introducing-eva-the-employee-verification-app" rel="alternate" type="text/html" title="Introducing EVA — The Employee Verification App" /><published>2024-10-14T00:00:00-05:00</published><updated>2024-10-14T00:00:00-05:00</updated><id>http://localhost:8000/introducing-eva-the-employee-verification-app</id><content type="html" xml:base="http://localhost:8000/introducing-eva-the-employee-verification-app"><![CDATA[<p>And the solution to Employee AI / Voice Phishing</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2024-10-15T13:14:30-05:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">FoxIO Blog</title><subtitle>FoxIO is a technology innovations company focused on creating simple, highly-effective solutions to major industry problems</subtitle><entry><title type="html">Introducing EVA — The Employee Verification App</title><link href="http://localhost:8000/introducing-eva-the-employee-verification-app" rel="alternate" type="text/html" title="Introducing EVA — The Employee Verification App" /><published>2024-10-14T00:00:00-05:00</published><updated>2024-10-14T00:00:00-05:00</updated><id>http://localhost:8000/introducing-eva-the-employee-verification-app</id><content type="html" xml:base="http://localhost:8000/introducing-eva-the-employee-verification-app"><![CDATA[<p>And the solution to Employee AI / Voice Phishing</p>
 
 <h2 id="tldr">TL;DR</h2>
 
@@ -76,6 +76,22 @@
 <p>We have built the first version of EVA for Slack, and the app currently supports Okta as an MFA provider. We are actively adding support for more MFA providers and are building EVA for Microsoft Teams. Please let us know what communication platform/MFA provider combination or additional features you would like to see by emailing us at <a href="mailto:info@foxio.io">info@foxio.io</a>. We will prioritize the top requests.</p>
 
 <p>EVA is patent pending.</p>
+
+<h2 id="qa-this-will-be-updated-as-the-questions-come-in">Q&amp;A (this will be updated as the questions come in)</h2>
+
+<p><strong>Q: Won’t this create MFA fatigue?</strong></p>
+
+<p>A: Users only get to the MFA part if someone is trying to verify them and they are that actual person. This should be extremely rare as each user rarely calls another user asking for something critical.</p>
+
+<p>In the case where a scammer is, for example, requesting gift cards from multiple users pretending to be the same person, that person may receive a lot of EVA verification requests, but since it’s not them, they can simply click Deny or ignore the requests triggering a timeout. In either case, EVA will alert the requesting user that it’s not them. No interaction with MFA is needed unless that person is actually requesting a bunch of gift cards from different people, which shouldn’t happen.</p>
+
+<p>In short, this will not cause MFA fatigue. You could think of EVA as a fire extinguisher, use of it by any individual should be extremely rare but you’ll be glad you had it when you needed it.</p>
+
+<p><strong>Q: This is a great idea! Why don’t we just build it ourselves?</strong></p>
+
+<p>A: This is the classic Buy vs. Build argument. We’ve designed this to be extremely inexpensive as our goal is to end employee phishing. It should be vastly cheaper and faster to implement than building. Another pitfall of building is if the person or team who built it leaves, then the project can become abandoned. We’ll always be here to help.</p>
+
+<p>If there’s any features you want that are missing, just ask, we’ll get them in so you can hit the ground running immediately.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 

@@ -35,6 +35,9 @@ module.exports = {
               h2: {
                 color: "#FFFFFF",
               },
+              h3: {
+                color: "#F5F5F7",
+              },
               a: {
                 color: "#6E3AF5",
                 "&:hover": {
